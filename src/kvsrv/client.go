@@ -1,9 +1,11 @@
 package kvsrv
 
-import "6.5840/labrpc"
-import "crypto/rand"
-import "math/big"
+import (
+	"crypto/rand"
+	"math/big"
 
+	"6.5840/labrpc"
+)
 
 type Clerk struct {
 	server *labrpc.ClientEnd
@@ -20,6 +22,7 @@ func nrand() int64 {
 func MakeClerk(server *labrpc.ClientEnd) *Clerk {
 	ck := new(Clerk)
 	ck.server = server
+	// InitLogger()
 	// You'll have to add code here.
 	return ck
 }
@@ -35,9 +38,15 @@ func MakeClerk(server *labrpc.ClientEnd) *Clerk {
 // must match the declared types of the RPC handler function's
 // arguments. and reply must be passed as a pointer.
 func (ck *Clerk) Get(key string) string {
-
+	args := GetArgs{
+		Key: key,
+	}
+	reply := GetReply{}
+	for !ck.server.Call("KVServer.Get", &args, &reply) { //无限重试，知道成功
+		// SugarLogger.Infof("客户端调用Get失败,开始重试")
+	}
 	// You will have to modify this function.
-	return ""
+	return reply.Value
 }
 
 // shared by Put and Append.
@@ -48,9 +57,55 @@ func (ck *Clerk) Get(key string) string {
 // the types of args and reply (including whether they are pointers)
 // must match the declared types of the RPC handler function's
 // arguments. and reply must be passed as a pointer.
+
+//带日志的无法通过内存测试
+// func (ck *Clerk) PutAppend(key string, value string, op string) string {
+// 	// You will have to modify this function.
+// 	messageID := nrand()
+// 	args := PutAppendArgs{
+// 		Key:         key,
+// 		Value:       value,
+// 		MessageType: Modify,
+// 		MessageID:   messageID,
+// 	}
+// 	reply := PutAppendReply{}
+// 	SugarLogger.Infof("客户端开始调用KVServer.%s;MessageID为:%d", op, messageID)
+// 	for !ck.server.Call("KVServer."+op, &args, &reply) {
+// 		SugarLogger.Infof("客户端调用KVServer.%s失败;MessageID为:%d", op, messageID)
+// 	}
+// 	SugarLogger.Infof("客户端调用KVServer.%s成功;MessageID为:%d;开始向服务器汇报完成", op, messageID)
+// 	args = PutAppendArgs{
+// 		MessageType: Report,
+// 		MessageID:   messageID,
+// 	}
+// 	for !ck.server.Call("KVServer."+op, &args, &reply) {
+// 		SugarLogger.Infof("MessageID为:%d 任务汇报", op, messageID)
+// 	}
+// 	SugarLogger.Infof("MessageID为:%d 任务汇报成功", op, messageID)
+// 	return reply.Value
+// }
+
 func (ck *Clerk) PutAppend(key string, value string, op string) string {
 	// You will have to modify this function.
-	return ""
+	messageID := nrand()
+	args := PutAppendArgs{
+		Key:         key,
+		Value:       value,
+		MessageType: Modify,
+		MessageID:   messageID,
+	}
+	reply := PutAppendReply{}
+	for !ck.server.Call("KVServer."+op, &args, &reply) {
+
+	}
+	args = PutAppendArgs{
+		MessageType: Report,
+		MessageID:   messageID,
+	}
+	for !ck.server.Call("KVServer."+op, &args, &reply) {
+	}
+
+	return reply.Value
 }
 
 func (ck *Clerk) Put(key string, value string) {

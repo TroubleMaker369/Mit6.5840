@@ -1,0 +1,1729 @@
+{"level":"info","ts":1741059881.596197,"msg":"初始化任务成功"}
+{"level":"info","ts":1741059882.611206,"msg":"Coordinator分配0号Map任务"}
+{"level":"info","ts":1741059882.6112967,"msg":"Coordinator分配1号Map任务"}
+{"level":"info","ts":1741059882.6113482,"msg":"Coordinator分配2号Map任务"}
+{"level":"info","ts":1741059882.611441,"msg":"worker 处理0号Map任务"}
+{"level":"info","ts":1741059882.6114855,"msg":"worker 处理1号Map任务"}
+{"level":"info","ts":1741059882.6115687,"msg":"worker 处理2号Map任务"}
+{"level":"info","ts":1741059882.6737666,"msg":"Coordinator 确认0 Map任务完成"}
+{"level":"info","ts":1741059882.6739466,"msg":"0 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059882.6742015,"msg":"Coordinator分配3号Map任务"}
+{"level":"info","ts":1741059882.674335,"msg":"worker 处理3号Map任务"}
+{"level":"info","ts":1741059882.801566,"msg":"Coordinator 确认2 Map任务完成"}
+{"level":"info","ts":1741059882.80174,"msg":"2 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059882.8019996,"msg":"Coordinator分配4号Map任务"}
+{"level":"info","ts":1741059882.802131,"msg":"worker 处理4号Map任务"}
+{"level":"info","ts":1741059882.8107483,"msg":"Coordinator 确认1 Map任务完成"}
+{"level":"info","ts":1741059882.8110142,"msg":"1 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059882.8113823,"msg":"Coordinator分配5号Map任务"}
+{"level":"info","ts":1741059882.8115866,"msg":"worker 处理5号Map任务"}
+{"level":"info","ts":1741059882.8744702,"msg":"Coordinator 确认5 Map任务完成"}
+{"level":"info","ts":1741059882.874673,"msg":"5 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059882.8749833,"msg":"Coordinator分配6号Map任务"}
+{"level":"info","ts":1741059882.8751028,"msg":"worker 处理6号Map任务"}
+{"level":"info","ts":1741059882.918023,"msg":"Coordinator 确认3 Map任务完成"}
+{"level":"info","ts":1741059882.9181828,"msg":"3 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059882.9184096,"msg":"Coordinator分配7号Map任务"}
+{"level":"info","ts":1741059882.9185305,"msg":"worker 处理7号Map任务"}
+{"level":"info","ts":1741059883.0851302,"msg":"Coordinator 确认4 Map任务完成"}
+{"level":"info","ts":1741059883.0853183,"msg":"4 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059883.0857892,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059883.107936,"msg":"Coordinator 确认7 Map任务完成"}
+{"level":"info","ts":1741059883.1080976,"msg":"7 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059883.1084144,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059883.1309974,"msg":"Coordinator 确认6 Map任务完成"}
+{"level":"info","ts":1741059883.1312184,"msg":"6 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059883.1314564,"msg":"所有Map任务完成!修改状态AllMapTaskCompleted为True"}
+{"level":"info","ts":1741059883.1314733,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059883.1314785,"msg":"Coordinator分配0号Reduce任务"}
+{"level":"info","ts":1741059883.131603,"msg":"worker 处理0号Reduce任务"}
+{"level":"info","ts":1741059883.1536229,"msg":"创建输出文件mr-out-0成功"}
+{"level":"info","ts":1741059883.1613078,"msg":"Coordinator 确认0 Reduce任务成功"}
+{"level":"info","ts":1741059883.1614728,"msg":"0 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059883.1617155,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059883.161732,"msg":"Coordinator分配1号Reduce任务"}
+{"level":"info","ts":1741059883.161847,"msg":"worker 处理1号Reduce任务"}
+{"level":"info","ts":1741059883.1854444,"msg":"创建输出文件mr-out-1成功"}
+{"level":"info","ts":1741059883.1930585,"msg":"Coordinator 确认1 Reduce任务成功"}
+{"level":"info","ts":1741059883.1932747,"msg":"1 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059883.1935575,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059883.1935751,"msg":"Coordinator分配2号Reduce任务"}
+{"level":"info","ts":1741059883.1937065,"msg":"worker 处理2号Reduce任务"}
+{"level":"info","ts":1741059883.2447243,"msg":"创建输出文件mr-out-2成功"}
+{"level":"info","ts":1741059883.2541137,"msg":"Coordinator 确认2 Reduce任务成功"}
+{"level":"info","ts":1741059883.2542777,"msg":"2 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059883.2544913,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059883.2545075,"msg":"Coordinator分配3号Reduce任务"}
+{"level":"info","ts":1741059883.2546213,"msg":"worker 处理3号Reduce任务"}
+{"level":"info","ts":1741059883.2759724,"msg":"创建输出文件mr-out-3成功"}
+{"level":"info","ts":1741059883.2832015,"msg":"Coordinator 确认3 Reduce任务成功"}
+{"level":"info","ts":1741059883.2833502,"msg":"3 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059883.283567,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059883.283583,"msg":"Coordinator分配4号Reduce任务"}
+{"level":"info","ts":1741059883.2837007,"msg":"worker 处理4号Reduce任务"}
+{"level":"info","ts":1741059883.3167076,"msg":"创建输出文件mr-out-4成功"}
+{"level":"info","ts":1741059883.3245802,"msg":"Coordinator 确认4 Reduce任务成功"}
+{"level":"info","ts":1741059883.324771,"msg":"4 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059883.3250651,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059883.3250818,"msg":"Coordinator分配5号Reduce任务"}
+{"level":"info","ts":1741059883.3252366,"msg":"worker 处理5号Reduce任务"}
+{"level":"info","ts":1741059883.346913,"msg":"创建输出文件mr-out-5成功"}
+{"level":"info","ts":1741059883.3545349,"msg":"Coordinator 确认5 Reduce任务成功"}
+{"level":"info","ts":1741059883.3546782,"msg":"5 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059883.3549604,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059883.3549771,"msg":"Coordinator分配6号Reduce任务"}
+{"level":"info","ts":1741059883.3550923,"msg":"worker 处理6号Reduce任务"}
+{"level":"info","ts":1741059883.4071813,"msg":"创建输出文件mr-out-6成功"}
+{"level":"info","ts":1741059883.4171178,"msg":"Coordinator 确认6 Reduce任务成功"}
+{"level":"info","ts":1741059883.4173203,"msg":"6 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059883.4175646,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059883.4175816,"msg":"Coordinator分配7号Reduce任务"}
+{"level":"info","ts":1741059883.417685,"msg":"worker 处理7号Reduce任务"}
+{"level":"info","ts":1741059883.4465513,"msg":"创建输出文件mr-out-7成功"}
+{"level":"info","ts":1741059883.4549265,"msg":"Coordinator 确认7 Reduce任务成功"}
+{"level":"info","ts":1741059883.4551187,"msg":"7 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059883.4553826,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059883.4554,"msg":"Coordinator分配8号Reduce任务"}
+{"level":"info","ts":1741059883.455568,"msg":"worker 处理8号Reduce任务"}
+{"level":"info","ts":1741059883.4984636,"msg":"创建输出文件mr-out-8成功"}
+{"level":"info","ts":1741059883.508034,"msg":"Coordinator 确认8 Reduce任务成功"}
+{"level":"info","ts":1741059883.50824,"msg":"8 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059883.5085282,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059883.508546,"msg":"Coordinator分配9号Reduce任务"}
+{"level":"info","ts":1741059883.5086508,"msg":"worker 处理9号Reduce任务"}
+{"level":"info","ts":1741059883.5413802,"msg":"创建输出文件mr-out-9成功"}
+{"level":"info","ts":1741059883.5494676,"msg":"Coordinator 确认9 Reduce任务成功"}
+{"level":"info","ts":1741059883.549685,"msg":"9 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059883.5499523,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059883.5499682,"msg":"所有Reduce任务完成!修改状态NReduceTaskCompleted为True"}
+{"level":"info","ts":1741059883.5500987,"msg":"0号worker退出"}
+{"level":"info","ts":1741059884.0960295,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059884.0962598,"msg":"0号worker退出"}
+{"level":"info","ts":1741059884.1093655,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059884.109538,"msg":"0号worker退出"}
+{"level":"info","ts":1741059884.7930727,"msg":"初始化任务成功"}
+{"level":"info","ts":1741059885.8554325,"msg":"Coordinator分配0号Map任务"}
+{"level":"info","ts":1741059885.8555014,"msg":"Coordinator分配1号Map任务"}
+{"level":"info","ts":1741059885.8556793,"msg":"worker 处理1号Map任务"}
+{"level":"info","ts":1741059885.8556793,"msg":"worker 处理0号Map任务"}
+{"level":"info","ts":1741059885.8708067,"msg":"Coordinator 确认0 Map任务完成"}
+{"level":"info","ts":1741059885.8709757,"msg":"0 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059885.8712423,"msg":"Coordinator分配2号Map任务"}
+{"level":"info","ts":1741059885.8713906,"msg":"worker 处理2号Map任务"}
+{"level":"info","ts":1741059885.8864772,"msg":"Coordinator 确认1 Map任务完成"}
+{"level":"info","ts":1741059885.8866608,"msg":"1 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059885.886929,"msg":"Coordinator分配3号Map任务"}
+{"level":"info","ts":1741059885.8870718,"msg":"worker 处理3号Map任务"}
+{"level":"info","ts":1741059885.8982573,"msg":"Coordinator 确认2 Map任务完成"}
+{"level":"info","ts":1741059885.8984253,"msg":"2 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059885.8987055,"msg":"Coordinator分配4号Map任务"}
+{"level":"info","ts":1741059885.8988943,"msg":"worker 处理4号Map任务"}
+{"level":"info","ts":1741059885.9121854,"msg":"Coordinator 确认3 Map任务完成"}
+{"level":"info","ts":1741059885.912358,"msg":"3 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059885.9126086,"msg":"Coordinator分配5号Map任务"}
+{"level":"info","ts":1741059885.9127421,"msg":"worker 处理5号Map任务"}
+{"level":"info","ts":1741059885.9247994,"msg":"Coordinator 确认5 Map任务完成"}
+{"level":"info","ts":1741059885.924958,"msg":"5 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059885.9252546,"msg":"Coordinator分配6号Map任务"}
+{"level":"info","ts":1741059885.9254467,"msg":"worker 处理6号Map任务"}
+{"level":"info","ts":1741059885.9290154,"msg":"Coordinator 确认4 Map任务完成"}
+{"level":"info","ts":1741059885.9291651,"msg":"4 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059885.9294026,"msg":"Coordinator分配7号Map任务"}
+{"level":"info","ts":1741059885.9295275,"msg":"worker 处理7号Map任务"}
+{"level":"info","ts":1741059885.956967,"msg":"Coordinator 确认6 Map任务完成"}
+{"level":"info","ts":1741059885.9571548,"msg":"6 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059885.9575844,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059885.960645,"msg":"Coordinator 确认7 Map任务完成"}
+{"level":"info","ts":1741059885.9608028,"msg":"7 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059885.9614809,"msg":"所有Map任务完成!修改状态AllMapTaskCompleted为True"}
+{"level":"info","ts":1741059885.9614973,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059885.9615028,"msg":"Coordinator分配0号Reduce任务"}
+{"level":"info","ts":1741059885.9616356,"msg":"worker 处理0号Reduce任务"}
+{"level":"info","ts":1741059885.9651427,"msg":"创建输出文件mr-out-0成功"}
+{"level":"info","ts":1741059885.9724777,"msg":"Coordinator 确认0 Reduce任务成功"}
+{"level":"info","ts":1741059885.9726615,"msg":"0 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059885.9729178,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059885.9729328,"msg":"Coordinator分配1号Reduce任务"}
+{"level":"info","ts":1741059885.9730372,"msg":"worker 处理1号Reduce任务"}
+{"level":"info","ts":1741059885.976544,"msg":"创建输出文件mr-out-1成功"}
+{"level":"info","ts":1741059885.9839182,"msg":"Coordinator 确认1 Reduce任务成功"}
+{"level":"info","ts":1741059885.9840596,"msg":"1 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059885.9843388,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059885.9843576,"msg":"Coordinator分配2号Reduce任务"}
+{"level":"info","ts":1741059885.984483,"msg":"worker 处理2号Reduce任务"}
+{"level":"info","ts":1741059885.9882336,"msg":"创建输出文件mr-out-2成功"}
+{"level":"info","ts":1741059885.9955254,"msg":"Coordinator 确认2 Reduce任务成功"}
+{"level":"info","ts":1741059885.995695,"msg":"2 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059885.9959276,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059885.9959443,"msg":"Coordinator分配3号Reduce任务"}
+{"level":"info","ts":1741059885.9961088,"msg":"worker 处理3号Reduce任务"}
+{"level":"info","ts":1741059886.0000136,"msg":"创建输出文件mr-out-3成功"}
+{"level":"info","ts":1741059886.0074522,"msg":"Coordinator 确认3 Reduce任务成功"}
+{"level":"info","ts":1741059886.0075989,"msg":"3 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059886.0078032,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059886.0078201,"msg":"Coordinator分配4号Reduce任务"}
+{"level":"info","ts":1741059886.0079226,"msg":"worker 处理4号Reduce任务"}
+{"level":"info","ts":1741059886.0115068,"msg":"创建输出文件mr-out-4成功"}
+{"level":"info","ts":1741059886.0187259,"msg":"Coordinator 确认4 Reduce任务成功"}
+{"level":"info","ts":1741059886.0188754,"msg":"4 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059886.019113,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059886.0191343,"msg":"Coordinator分配5号Reduce任务"}
+{"level":"info","ts":1741059886.019244,"msg":"worker 处理5号Reduce任务"}
+{"level":"info","ts":1741059886.0233607,"msg":"创建输出文件mr-out-5成功"}
+{"level":"info","ts":1741059886.0306263,"msg":"Coordinator 确认5 Reduce任务成功"}
+{"level":"info","ts":1741059886.0308404,"msg":"5 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059886.0310903,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059886.0311077,"msg":"Coordinator分配6号Reduce任务"}
+{"level":"info","ts":1741059886.0312293,"msg":"worker 处理6号Reduce任务"}
+{"level":"info","ts":1741059886.0349839,"msg":"创建输出文件mr-out-6成功"}
+{"level":"info","ts":1741059886.0421846,"msg":"Coordinator 确认6 Reduce任务成功"}
+{"level":"info","ts":1741059886.0427008,"msg":"6 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059886.0429525,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059886.0429688,"msg":"Coordinator分配7号Reduce任务"}
+{"level":"info","ts":1741059886.0430794,"msg":"worker 处理7号Reduce任务"}
+{"level":"info","ts":1741059886.0464437,"msg":"创建输出文件mr-out-7成功"}
+{"level":"info","ts":1741059886.053615,"msg":"Coordinator 确认7 Reduce任务成功"}
+{"level":"info","ts":1741059886.0537913,"msg":"7 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059886.0540493,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059886.0540695,"msg":"Coordinator分配8号Reduce任务"}
+{"level":"info","ts":1741059886.0542333,"msg":"worker 处理8号Reduce任务"}
+{"level":"info","ts":1741059886.058468,"msg":"创建输出文件mr-out-8成功"}
+{"level":"info","ts":1741059886.065629,"msg":"Coordinator 确认8 Reduce任务成功"}
+{"level":"info","ts":1741059886.0657995,"msg":"8 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059886.066029,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059886.0660458,"msg":"Coordinator分配9号Reduce任务"}
+{"level":"info","ts":1741059886.0661607,"msg":"worker 处理9号Reduce任务"}
+{"level":"info","ts":1741059886.0697086,"msg":"创建输出文件mr-out-9成功"}
+{"level":"info","ts":1741059886.0767543,"msg":"Coordinator 确认9 Reduce任务成功"}
+{"level":"info","ts":1741059886.0769315,"msg":"9 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059886.077158,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059886.077174,"msg":"所有Reduce任务完成!修改状态NReduceTaskCompleted为True"}
+{"level":"info","ts":1741059886.0773437,"msg":"0号worker退出"}
+{"level":"info","ts":1741059886.9585063,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059886.9587219,"msg":"0号worker退出"}
+{"level":"info","ts":1741059887.9578335,"msg":"初始化任务成功"}
+{"level":"info","ts":1741059888.9644275,"msg":"Coordinator分配0号Map任务"}
+{"level":"info","ts":1741059888.9645445,"msg":"Coordinator分配1号Map任务"}
+{"level":"info","ts":1741059888.9646707,"msg":"worker 处理1号Map任务"}
+{"level":"info","ts":1741059888.9646673,"msg":"worker 处理0号Map任务"}
+{"level":"info","ts":1741059889.9836452,"msg":"Coordinator 确认0 Map任务完成"}
+{"level":"info","ts":1741059889.9838564,"msg":"0 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059889.9841003,"msg":"Coordinator分配2号Map任务"}
+{"level":"info","ts":1741059889.9842224,"msg":"worker 处理2号Map任务"}
+{"level":"info","ts":1741059889.9870884,"msg":"Coordinator 确认1 Map任务完成"}
+{"level":"info","ts":1741059889.9873211,"msg":"1 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059889.9876988,"msg":"Coordinator分配3号Map任务"}
+{"level":"info","ts":1741059889.9878457,"msg":"worker 处理3号Map任务"}
+{"level":"info","ts":1741059891.0056968,"msg":"Coordinator 确认2 Map任务完成"}
+{"level":"info","ts":1741059891.0058692,"msg":"2 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059891.006102,"msg":"Coordinator分配4号Map任务"}
+{"level":"info","ts":1741059891.0062306,"msg":"worker 处理4号Map任务"}
+{"level":"info","ts":1741059891.0491104,"msg":"Coordinator 确认3 Map任务完成"}
+{"level":"info","ts":1741059891.0492396,"msg":"3 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059891.0494857,"msg":"Coordinator分配5号Map任务"}
+{"level":"info","ts":1741059891.0496078,"msg":"worker 处理5号Map任务"}
+{"level":"info","ts":1741059892.028288,"msg":"Coordinator 确认4 Map任务完成"}
+{"level":"info","ts":1741059892.028509,"msg":"4 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059892.0288985,"msg":"Coordinator分配6号Map任务"}
+{"level":"info","ts":1741059892.0290487,"msg":"worker 处理6号Map任务"}
+{"level":"info","ts":1741059892.0696578,"msg":"Coordinator 确认5 Map任务完成"}
+{"level":"info","ts":1741059892.0698152,"msg":"5 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059892.070046,"msg":"Coordinator分配7号Map任务"}
+{"level":"info","ts":1741059892.0701582,"msg":"worker 处理7号Map任务"}
+{"level":"info","ts":1741059893.0452473,"msg":"Coordinator 确认6 Map任务完成"}
+{"level":"info","ts":1741059893.0454242,"msg":"6 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059893.0457532,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059893.0736327,"msg":"Coordinator 确认7 Map任务完成"}
+{"level":"info","ts":1741059893.0738807,"msg":"7 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059893.0743144,"msg":"所有Map任务完成!修改状态AllMapTaskCompleted为True"}
+{"level":"info","ts":1741059893.0743303,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059893.074336,"msg":"Coordinator分配0号Reduce任务"}
+{"level":"info","ts":1741059893.074484,"msg":"worker 处理0号Reduce任务"}
+{"level":"info","ts":1741059893.074647,"msg":"创建输出文件mr-out-0成功"}
+{"level":"info","ts":1741059893.0748742,"msg":"Coordinator 确认0 Reduce任务成功"}
+{"level":"info","ts":1741059893.075297,"msg":"0 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059893.075534,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059893.0755496,"msg":"Coordinator分配1号Reduce任务"}
+{"level":"info","ts":1741059893.075653,"msg":"worker 处理1号Reduce任务"}
+{"level":"info","ts":1741059893.0757678,"msg":"创建输出文件mr-out-1成功"}
+{"level":"info","ts":1741059893.0759952,"msg":"Coordinator 确认1 Reduce任务成功"}
+{"level":"info","ts":1741059893.0761034,"msg":"1 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059893.076319,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059893.0763354,"msg":"Coordinator分配2号Reduce任务"}
+{"level":"info","ts":1741059893.0764434,"msg":"worker 处理2号Reduce任务"}
+{"level":"info","ts":1741059893.0765665,"msg":"创建输出文件mr-out-2成功"}
+{"level":"info","ts":1741059893.0768113,"msg":"Coordinator 确认2 Reduce任务成功"}
+{"level":"info","ts":1741059893.0769255,"msg":"2 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059893.0771275,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059893.077144,"msg":"Coordinator分配3号Reduce任务"}
+{"level":"info","ts":1741059893.077245,"msg":"worker 处理3号Reduce任务"}
+{"level":"info","ts":1741059893.0773706,"msg":"创建输出文件mr-out-3成功"}
+{"level":"info","ts":1741059893.0776107,"msg":"Coordinator 确认3 Reduce任务成功"}
+{"level":"info","ts":1741059893.077739,"msg":"3 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059893.0779428,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059893.0779574,"msg":"Coordinator分配4号Reduce任务"}
+{"level":"info","ts":1741059893.0780506,"msg":"worker 处理4号Reduce任务"}
+{"level":"info","ts":1741059893.0781598,"msg":"创建输出文件mr-out-4成功"}
+{"level":"info","ts":1741059893.0783737,"msg":"Coordinator 确认4 Reduce任务成功"}
+{"level":"info","ts":1741059893.0784795,"msg":"4 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059893.0786736,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059893.0786889,"msg":"Coordinator分配5号Reduce任务"}
+{"level":"info","ts":1741059893.0787816,"msg":"worker 处理5号Reduce任务"}
+{"level":"info","ts":1741059893.0788877,"msg":"创建输出文件mr-out-5成功"}
+{"level":"info","ts":1741059893.0791051,"msg":"Coordinator 确认5 Reduce任务成功"}
+{"level":"info","ts":1741059893.0792103,"msg":"5 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059893.079402,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059893.0794158,"msg":"Coordinator分配6号Reduce任务"}
+{"level":"info","ts":1741059893.079509,"msg":"worker 处理6号Reduce任务"}
+{"level":"info","ts":1741059893.0796351,"msg":"创建输出文件mr-out-6成功"}
+{"level":"info","ts":1741059893.079837,"msg":"Coordinator 确认6 Reduce任务成功"}
+{"level":"info","ts":1741059893.0799491,"msg":"6 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059893.0801737,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059893.08019,"msg":"Coordinator分配7号Reduce任务"}
+{"level":"info","ts":1741059893.08028,"msg":"worker 处理7号Reduce任务"}
+{"level":"info","ts":1741059893.0803933,"msg":"创建输出文件mr-out-7成功"}
+{"level":"info","ts":1741059893.0806313,"msg":"Coordinator 确认7 Reduce任务成功"}
+{"level":"info","ts":1741059893.0807393,"msg":"7 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059893.08092,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059893.0809362,"msg":"Coordinator分配8号Reduce任务"}
+{"level":"info","ts":1741059893.0810306,"msg":"worker 处理8号Reduce任务"}
+{"level":"info","ts":1741059893.0811489,"msg":"创建输出文件mr-out-8成功"}
+{"level":"info","ts":1741059893.0813713,"msg":"Coordinator 确认8 Reduce任务成功"}
+{"level":"info","ts":1741059893.0814767,"msg":"8 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059893.0816953,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059893.0817096,"msg":"Coordinator分配9号Reduce任务"}
+{"level":"info","ts":1741059893.0818205,"msg":"worker 处理9号Reduce任务"}
+{"level":"info","ts":1741059893.0819523,"msg":"创建输出文件mr-out-9成功"}
+{"level":"info","ts":1741059893.0821683,"msg":"Coordinator 确认9 Reduce任务成功"}
+{"level":"info","ts":1741059893.08228,"msg":"9 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059893.082499,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059893.0825183,"msg":"所有Reduce任务完成!修改状态NReduceTaskCompleted为True"}
+{"level":"info","ts":1741059893.082636,"msg":"0号worker退出"}
+{"level":"info","ts":1741059894.0544965,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059894.054692,"msg":"0号worker退出"}
+{"level":"info","ts":1741059895.082136,"msg":"初始化任务成功"}
+{"level":"info","ts":1741059894.2157667,"msg":"Coordinator分配0号Map任务"}
+{"level":"info","ts":1741059894.2159257,"msg":"Coordinator分配1号Map任务"}
+{"level":"info","ts":1741059894.2160788,"msg":"worker 处理0号Map任务"}
+{"level":"info","ts":1741059894.216096,"msg":"worker 处理1号Map任务"}
+{"level":"info","ts":1741059894.2191966,"msg":"Coordinator 确认0 Map任务完成"}
+{"level":"info","ts":1741059894.2194068,"msg":"0 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059894.2198265,"msg":"Coordinator分配2号Map任务"}
+{"level":"info","ts":1741059894.220012,"msg":"worker 处理2号Map任务"}
+{"level":"info","ts":1741059894.2227912,"msg":"Coordinator 确认1 Map任务完成"}
+{"level":"info","ts":1741059894.2229676,"msg":"1 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059894.2236676,"msg":"Coordinator分配3号Map任务"}
+{"level":"info","ts":1741059894.2238297,"msg":"worker 处理3号Map任务"}
+{"level":"info","ts":1741059894.2251637,"msg":"Coordinator 确认2 Map任务完成"}
+{"level":"info","ts":1741059894.2253213,"msg":"2 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059894.2256176,"msg":"Coordinator分配4号Map任务"}
+{"level":"info","ts":1741059894.2258427,"msg":"worker 处理4号Map任务"}
+{"level":"info","ts":1741059894.226404,"msg":"Coordinator 确认3 Map任务完成"}
+{"level":"info","ts":1741059894.226599,"msg":"3 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059894.2269135,"msg":"Coordinator分配5号Map任务"}
+{"level":"info","ts":1741059894.2270496,"msg":"worker 处理5号Map任务"}
+{"level":"info","ts":1741059894.2298698,"msg":"Coordinator 确认4 Map任务完成"}
+{"level":"info","ts":1741059894.230006,"msg":"4 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059894.23011,"msg":"Coordinator 确认5 Map任务完成"}
+{"level":"info","ts":1741059894.2302413,"msg":"5 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059894.2303514,"msg":"Coordinator分配6号Map任务"}
+{"level":"info","ts":1741059894.2304904,"msg":"worker 处理6号Map任务"}
+{"level":"info","ts":1741059894.2305524,"msg":"Coordinator分配7号Map任务"}
+{"level":"info","ts":1741059894.2306814,"msg":"worker 处理7号Map任务"}
+{"level":"info","ts":1741059894.23297,"msg":"Coordinator 确认7 Map任务完成"}
+{"level":"info","ts":1741059894.2331305,"msg":"7 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059894.2334244,"msg":"Coordinator 确认6 Map任务完成"}
+{"level":"info","ts":1741059894.2335763,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059894.233577,"msg":"6 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059894.233849,"msg":"所有Map任务完成!修改状态AllMapTaskCompleted为True"}
+{"level":"info","ts":1741059894.2338881,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059894.2338943,"msg":"Coordinator分配0号Reduce任务"}
+{"level":"info","ts":1741059894.2340226,"msg":"worker 处理0号Reduce任务"}
+{"level":"info","ts":1741059894.2341657,"msg":"创建输出文件mr-out-0成功"}
+{"level":"info","ts":1741059895.2351367,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059895.2361188,"msg":"Coordinator分配1号Reduce任务"}
+{"level":"info","ts":1741059895.2362876,"msg":"worker 处理1号Reduce任务"}
+{"level":"info","ts":1741059895.2364483,"msg":"创建输出文件mr-out-1成功"}
+{"level":"info","ts":1741059895.2551606,"msg":"Coordinator 确认0 Reduce任务成功"}
+{"level":"info","ts":1741059895.2552917,"msg":"0 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059895.255591,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059895.255625,"msg":"Coordinator分配2号Reduce任务"}
+{"level":"info","ts":1741059895.2557395,"msg":"worker 处理2号Reduce任务"}
+{"level":"info","ts":1741059895.255863,"msg":"创建输出文件mr-out-2成功"}
+{"level":"info","ts":1741059896.24465,"msg":"Coordinator 确认1 Reduce任务成功"}
+{"level":"info","ts":1741059896.2448788,"msg":"1 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059896.245239,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059896.245254,"msg":"Coordinator分配3号Reduce任务"}
+{"level":"info","ts":1741059896.2458892,"msg":"worker 处理3号Reduce任务"}
+{"level":"info","ts":1741059896.246173,"msg":"创建输出文件mr-out-3成功"}
+{"level":"info","ts":1741059896.3161066,"msg":"Coordinator 确认2 Reduce任务成功"}
+{"level":"info","ts":1741059896.3163426,"msg":"2 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059896.3166428,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059896.3166604,"msg":"Coordinator分配4号Reduce任务"}
+{"level":"info","ts":1741059896.3168497,"msg":"worker 处理4号Reduce任务"}
+{"level":"info","ts":1741059896.3170817,"msg":"创建输出文件mr-out-4成功"}
+{"level":"info","ts":1741059898.2659857,"msg":"Coordinator 确认3 Reduce任务成功"}
+{"level":"info","ts":1741059898.266237,"msg":"3 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059898.266505,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059898.2665327,"msg":"Coordinator分配5号Reduce任务"}
+{"level":"info","ts":1741059898.2666576,"msg":"worker 处理5号Reduce任务"}
+{"level":"info","ts":1741059898.266808,"msg":"创建输出文件mr-out-5成功"}
+{"level":"info","ts":1741059898.3548095,"msg":"Coordinator 确认4 Reduce任务成功"}
+{"level":"info","ts":1741059898.3549993,"msg":"4 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059898.3552265,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059898.3552432,"msg":"Coordinator分配6号Reduce任务"}
+{"level":"info","ts":1741059898.3553493,"msg":"worker 处理6号Reduce任务"}
+{"level":"info","ts":1741059898.3554897,"msg":"创建输出文件mr-out-6成功"}
+{"level":"info","ts":1741059899.2853022,"msg":"Coordinator 确认5 Reduce任务成功"}
+{"level":"info","ts":1741059899.2854717,"msg":"5 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059899.285691,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059899.2857082,"msg":"Coordinator分配7号Reduce任务"}
+{"level":"info","ts":1741059899.2858124,"msg":"worker 处理7号Reduce任务"}
+{"level":"info","ts":1741059899.2859507,"msg":"创建输出文件mr-out-7成功"}
+{"level":"info","ts":1741059899.2861803,"msg":"Coordinator 确认7 Reduce任务成功"}
+{"level":"info","ts":1741059899.2863095,"msg":"7 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059899.286547,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059899.2865653,"msg":"Coordinator分配8号Reduce任务"}
+{"level":"info","ts":1741059899.286693,"msg":"worker 处理8号Reduce任务"}
+{"level":"info","ts":1741059899.286814,"msg":"创建输出文件mr-out-8成功"}
+{"level":"info","ts":1741059899.2870188,"msg":"Coordinator 确认8 Reduce任务成功"}
+{"level":"info","ts":1741059899.2871304,"msg":"8 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059899.2876945,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059899.2877123,"msg":"Coordinator分配9号Reduce任务"}
+{"level":"info","ts":1741059899.28784,"msg":"worker 处理9号Reduce任务"}
+{"level":"info","ts":1741059899.287985,"msg":"创建输出文件mr-out-9成功"}
+{"level":"info","ts":1741059899.3625503,"msg":"Coordinator 确认6 Reduce任务成功"}
+{"level":"info","ts":1741059899.3627195,"msg":"6 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059899.3629653,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059899.3630857,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059900.3271596,"msg":"Coordinator 确认9 Reduce任务成功"}
+{"level":"info","ts":1741059900.3273587,"msg":"9 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059900.327627,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059900.3276534,"msg":"所有Reduce任务完成!修改状态NReduceTaskCompleted为True"}
+{"level":"info","ts":1741059900.3277717,"msg":"0号worker退出"}
+{"level":"info","ts":1741059900.3651686,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059900.3653276,"msg":"0号worker退出"}
+{"level":"info","ts":1741059902.3494782,"msg":"初始化任务成功"}
+{"level":"info","ts":1741059903.367022,"msg":"Coordinator分配0号Map任务"}
+{"level":"info","ts":1741059903.367281,"msg":"Coordinator分配1号Map任务"}
+{"level":"info","ts":1741059903.3673017,"msg":"worker 处理0号Map任务"}
+{"level":"info","ts":1741059903.3676395,"msg":"worker 处理1号Map任务"}
+{"level":"info","ts":1741059907.0954137,"msg":"Coordinator 确认1 Map任务完成"}
+{"level":"info","ts":1741059907.095676,"msg":"1 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059907.096014,"msg":"Coordinator分配2号Map任务"}
+{"level":"info","ts":1741059907.096198,"msg":"worker 处理2号Map任务"}
+{"level":"info","ts":1741059907.3008523,"msg":"Coordinator 确认0 Map任务完成"}
+{"level":"info","ts":1741059907.301066,"msg":"0 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059907.301401,"msg":"Coordinator分配3号Map任务"}
+{"level":"info","ts":1741059907.301559,"msg":"worker 处理3号Map任务"}
+{"level":"info","ts":1741059909.6357105,"msg":"Coordinator 确认2 Map任务完成"}
+{"level":"info","ts":1741059909.636007,"msg":"2 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059909.6364129,"msg":"Coordinator分配4号Map任务"}
+{"level":"info","ts":1741059909.6366475,"msg":"worker 处理4号Map任务"}
+{"level":"info","ts":1741059910.780197,"msg":"Coordinator 确认3 Map任务完成"}
+{"level":"info","ts":1741059910.7804976,"msg":"3 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059910.7808454,"msg":"Coordinator分配5号Map任务"}
+{"level":"info","ts":1741059910.7810144,"msg":"worker 处理5号Map任务"}
+{"level":"info","ts":1741059912.1771882,"msg":"Coordinator 确认4 Map任务完成"}
+{"level":"info","ts":1741059912.1775084,"msg":"4 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059912.177924,"msg":"Coordinator分配6号Map任务"}
+{"level":"info","ts":1741059912.1781077,"msg":"worker 处理6号Map任务"}
+{"level":"info","ts":1741059914.2208927,"msg":"Coordinator 确认6 Map任务完成"}
+{"level":"info","ts":1741059914.2212236,"msg":"6 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059914.2216306,"msg":"Coordinator分配7号Map任务"}
+{"level":"info","ts":1741059914.2218251,"msg":"worker 处理7号Map任务"}
+{"level":"info","ts":1741059915.690389,"msg":"Coordinator 确认5 Map任务完成"}
+{"level":"info","ts":1741059915.690568,"msg":"5 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059915.6909442,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059916.7090678,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059917.724059,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059917.7823484,"msg":"Coordinator 确认7 Map任务完成"}
+{"level":"info","ts":1741059917.7825317,"msg":"7 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059917.7828488,"msg":"所有Map任务完成!修改状态AllMapTaskCompleted为True"}
+{"level":"info","ts":1741059917.7828674,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059917.782873,"msg":"Coordinator分配0号Reduce任务"}
+{"level":"info","ts":1741059917.7829995,"msg":"worker 处理0号Reduce任务"}
+{"level":"info","ts":1741059917.7831337,"msg":"创建输出文件mr-out-0成功"}
+{"level":"info","ts":1741059917.783426,"msg":"Coordinator 确认0 Reduce任务成功"}
+{"level":"info","ts":1741059917.7835686,"msg":"0 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059917.783828,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059917.7838542,"msg":"Coordinator分配1号Reduce任务"}
+{"level":"info","ts":1741059917.7840002,"msg":"worker 处理1号Reduce任务"}
+{"level":"info","ts":1741059917.7841334,"msg":"创建输出文件mr-out-1成功"}
+{"level":"info","ts":1741059917.784399,"msg":"Coordinator 确认1 Reduce任务成功"}
+{"level":"info","ts":1741059917.7845454,"msg":"1 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059917.7847617,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059917.7847803,"msg":"Coordinator分配2号Reduce任务"}
+{"level":"info","ts":1741059917.784892,"msg":"worker 处理2号Reduce任务"}
+{"level":"info","ts":1741059917.7850263,"msg":"创建输出文件mr-out-2成功"}
+{"level":"info","ts":1741059917.7858238,"msg":"Coordinator 确认2 Reduce任务成功"}
+{"level":"info","ts":1741059917.78595,"msg":"2 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059917.7861886,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059917.7862055,"msg":"Coordinator分配3号Reduce任务"}
+{"level":"info","ts":1741059917.7864163,"msg":"worker 处理3号Reduce任务"}
+{"level":"info","ts":1741059917.7866359,"msg":"创建输出文件mr-out-3成功"}
+{"level":"info","ts":1741059917.7869449,"msg":"Coordinator 确认3 Reduce任务成功"}
+{"level":"info","ts":1741059917.7870913,"msg":"3 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059917.787328,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059917.7873452,"msg":"Coordinator分配4号Reduce任务"}
+{"level":"info","ts":1741059917.787481,"msg":"worker 处理4号Reduce任务"}
+{"level":"info","ts":1741059917.787602,"msg":"创建输出文件mr-out-4成功"}
+{"level":"info","ts":1741059917.7878582,"msg":"Coordinator 确认4 Reduce任务成功"}
+{"level":"info","ts":1741059917.7880132,"msg":"4 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059917.7882864,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059917.7883277,"msg":"Coordinator分配5号Reduce任务"}
+{"level":"info","ts":1741059917.7884438,"msg":"worker 处理5号Reduce任务"}
+{"level":"info","ts":1741059917.7885735,"msg":"创建输出文件mr-out-5成功"}
+{"level":"info","ts":1741059917.7888072,"msg":"Coordinator 确认5 Reduce任务成功"}
+{"level":"info","ts":1741059917.7889256,"msg":"5 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059917.7891655,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059917.7891824,"msg":"Coordinator分配6号Reduce任务"}
+{"level":"info","ts":1741059917.789296,"msg":"worker 处理6号Reduce任务"}
+{"level":"info","ts":1741059917.789417,"msg":"创建输出文件mr-out-6成功"}
+{"level":"info","ts":1741059917.7896392,"msg":"Coordinator 确认6 Reduce任务成功"}
+{"level":"info","ts":1741059917.7897677,"msg":"6 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059917.78998,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059917.7899966,"msg":"Coordinator分配7号Reduce任务"}
+{"level":"info","ts":1741059917.7901022,"msg":"worker 处理7号Reduce任务"}
+{"level":"info","ts":1741059917.7902274,"msg":"创建输出文件mr-out-7成功"}
+{"level":"info","ts":1741059917.7904375,"msg":"Coordinator 确认7 Reduce任务成功"}
+{"level":"info","ts":1741059917.790544,"msg":"7 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059917.7908323,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059917.790859,"msg":"Coordinator分配8号Reduce任务"}
+{"level":"info","ts":1741059917.7909954,"msg":"worker 处理8号Reduce任务"}
+{"level":"info","ts":1741059917.7911224,"msg":"创建输出文件mr-out-8成功"}
+{"level":"info","ts":1741059917.791412,"msg":"Coordinator 确认8 Reduce任务成功"}
+{"level":"info","ts":1741059917.791543,"msg":"8 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059917.79179,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059917.7918077,"msg":"Coordinator分配9号Reduce任务"}
+{"level":"info","ts":1741059917.791932,"msg":"worker 处理9号Reduce任务"}
+{"level":"info","ts":1741059917.7920613,"msg":"创建输出文件mr-out-9成功"}
+{"level":"info","ts":1741059917.792356,"msg":"Coordinator 确认9 Reduce任务成功"}
+{"level":"info","ts":1741059917.7924883,"msg":"9 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059917.7927985,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059917.7928178,"msg":"所有Reduce任务完成!修改状态NReduceTaskCompleted为True"}
+{"level":"info","ts":1741059917.79293,"msg":"0号worker退出"}
+{"level":"info","ts":1741059917.8021283,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059917.8022037,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059917.8023458,"msg":"0号worker退出"}
+{"level":"info","ts":1741059917.8023481,"msg":"0号worker退出"}
+{"level":"info","ts":1741059918.7361965,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059918.7364144,"msg":"0号worker退出"}
+{"level":"info","ts":1741059919.5571396,"msg":"初始化任务成功"}
+{"level":"info","ts":1741059920.5866568,"msg":"Coordinator分配0号Map任务"}
+{"level":"info","ts":1741059920.5867462,"msg":"Coordinator分配1号Map任务"}
+{"level":"info","ts":1741059920.5868893,"msg":"worker 处理0号Map任务"}
+{"level":"info","ts":1741059920.5869226,"msg":"Coordinator分配2号Map任务"}
+{"level":"info","ts":1741059920.587078,"msg":"worker 处理1号Map任务"}
+{"level":"info","ts":1741059920.587135,"msg":"worker 处理2号Map任务"}
+{"level":"info","ts":1741059920.5902143,"msg":"Coordinator 确认0 Map任务完成"}
+{"level":"info","ts":1741059920.5903547,"msg":"0 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059920.5904346,"msg":"Coordinator 确认2 Map任务完成"}
+{"level":"info","ts":1741059920.5906665,"msg":"Coordinator分配3号Map任务"}
+{"level":"info","ts":1741059920.590813,"msg":"worker 处理3号Map任务"}
+{"level":"info","ts":1741059920.5930028,"msg":"2 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059920.59315,"msg":"Coordinator 确认1 Map任务完成"}
+{"level":"info","ts":1741059920.5933335,"msg":"1 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059920.5934472,"msg":"Coordinator分配4号Map任务"}
+{"level":"info","ts":1741059920.5935895,"msg":"worker 处理4号Map任务"}
+{"level":"info","ts":1741059920.5936806,"msg":"Coordinator分配5号Map任务"}
+{"level":"info","ts":1741059920.5938208,"msg":"worker 处理5号Map任务"}
+{"level":"info","ts":1741059920.5960312,"msg":"Coordinator 确认5 Map任务完成"}
+{"level":"info","ts":1741059920.5961783,"msg":"5 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059920.596436,"msg":"Coordinator分配6号Map任务"}
+{"level":"info","ts":1741059920.5966165,"msg":"worker 处理6号Map任务"}
+{"level":"info","ts":1741059920.5976367,"msg":"Coordinator 确认4 Map任务完成"}
+{"level":"info","ts":1741059920.5978022,"msg":"4 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059920.5980165,"msg":"Coordinator 确认3 Map任务完成"}
+{"level":"info","ts":1741059920.5981832,"msg":"Coordinator分配7号Map任务"}
+{"level":"info","ts":1741059920.5982,"msg":"3 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059920.5983665,"msg":"worker 处理7号Map任务"}
+{"level":"info","ts":1741059920.5986876,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059920.6002114,"msg":"Coordinator 确认6 Map任务完成"}
+{"level":"info","ts":1741059920.600382,"msg":"6 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059920.6007748,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059920.6010468,"msg":"Coordinator 确认7 Map任务完成"}
+{"level":"info","ts":1741059920.6011868,"msg":"7 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059920.601464,"msg":"所有Map任务完成!修改状态AllMapTaskCompleted为True"}
+{"level":"info","ts":1741059920.601483,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059920.601488,"msg":"Coordinator分配0号Reduce任务"}
+{"level":"info","ts":1741059920.6016088,"msg":"worker 处理0号Reduce任务"}
+{"level":"info","ts":1741059920.6017416,"msg":"创建输出文件mr-out-0成功"}
+{"level":"info","ts":1741059920.602038,"msg":"Coordinator 确认0 Reduce任务成功"}
+{"level":"info","ts":1741059920.6021662,"msg":"0 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059920.6023905,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059920.602409,"msg":"Coordinator分配1号Reduce任务"}
+{"level":"info","ts":1741059920.6025298,"msg":"worker 处理1号Reduce任务"}
+{"level":"info","ts":1741059920.602653,"msg":"创建输出文件mr-out-1成功"}
+{"level":"info","ts":1741059920.6029062,"msg":"Coordinator 确认1 Reduce任务成功"}
+{"level":"info","ts":1741059920.6030405,"msg":"1 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059920.6032634,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059920.6032794,"msg":"Coordinator分配2号Reduce任务"}
+{"level":"info","ts":1741059920.60339,"msg":"worker 处理2号Reduce任务"}
+{"level":"info","ts":1741059920.6035151,"msg":"创建输出文件mr-out-2成功"}
+{"level":"info","ts":1741059921.599494,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059921.5995426,"msg":"Coordinator分配3号Reduce任务"}
+{"level":"info","ts":1741059921.5997229,"msg":"worker 处理3号Reduce任务"}
+{"level":"info","ts":1741059921.59994,"msg":"创建输出文件mr-out-3成功"}
+{"level":"info","ts":1741059921.6002169,"msg":"Coordinator 确认3 Reduce任务成功"}
+{"level":"info","ts":1741059921.6003408,"msg":"3 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059921.6007059,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059921.6007228,"msg":"Coordinator分配4号Reduce任务"}
+{"level":"info","ts":1741059921.600851,"msg":"worker 处理4号Reduce任务"}
+{"level":"info","ts":1741059921.6009734,"msg":"创建输出文件mr-out-4成功"}
+{"level":"info","ts":1741059921.601205,"msg":"Coordinator 确认4 Reduce任务成功"}
+{"level":"info","ts":1741059921.6013253,"msg":"4 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059921.6015606,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059921.6015766,"msg":"Coordinator分配5号Reduce任务"}
+{"level":"info","ts":1741059921.6016934,"msg":"worker 处理5号Reduce任务"}
+{"level":"info","ts":1741059921.6018302,"msg":"创建输出文件mr-out-5成功"}
+{"level":"info","ts":1741059921.6020527,"msg":"Coordinator 确认5 Reduce任务成功"}
+{"level":"info","ts":1741059921.6021726,"msg":"5 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059921.6023757,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059921.602391,"msg":"Coordinator分配6号Reduce任务"}
+{"level":"info","ts":1741059921.6024928,"msg":"worker 处理6号Reduce任务"}
+{"level":"info","ts":1741059921.6026192,"msg":"创建输出文件mr-out-6成功"}
+{"level":"info","ts":1741059921.644147,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059921.6441846,"msg":"Coordinator分配7号Reduce任务"}
+{"level":"info","ts":1741059921.6443615,"msg":"worker 处理7号Reduce任务"}
+{"level":"info","ts":1741059921.6445472,"msg":"创建输出文件mr-out-7成功"}
+{"level":"info","ts":1741059921.6448274,"msg":"Coordinator 确认7 Reduce任务成功"}
+{"level":"info","ts":1741059921.6449475,"msg":"7 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059921.6451526,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059921.6451688,"msg":"Coordinator分配8号Reduce任务"}
+{"level":"info","ts":1741059921.645284,"msg":"worker 处理8号Reduce任务"}
+{"level":"info","ts":1741059921.6454232,"msg":"创建输出文件mr-out-8成功"}
+{"level":"info","ts":1741059921.6456835,"msg":"Coordinator 确认8 Reduce任务成功"}
+{"level":"info","ts":1741059921.6457963,"msg":"8 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059921.6462939,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059921.646316,"msg":"Coordinator分配9号Reduce任务"}
+{"level":"info","ts":1741059921.646433,"msg":"worker 处理9号Reduce任务"}
+{"level":"info","ts":1741059921.6465476,"msg":"创建输出文件mr-out-9成功"}
+{"level":"info","ts":1741059921.646773,"msg":"Coordinator 确认9 Reduce任务成功"}
+{"level":"info","ts":1741059921.6468863,"msg":"9 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059921.64708,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059921.647197,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059922.6481547,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059922.6484609,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059923.616918,"msg":"Coordinator 确认2 Reduce任务成功"}
+{"level":"info","ts":1741059923.6170986,"msg":"2 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059923.617309,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059923.617417,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059923.6502936,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059923.6504426,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059924.6333919,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059924.6334693,"msg":"Coordinator 确认6 Reduce任务成功"}
+{"level":"info","ts":1741059924.6336055,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059924.6336627,"msg":"6 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059924.6340153,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059924.634031,"msg":"所有Reduce任务完成!修改状态NReduceTaskCompleted为True"}
+{"level":"info","ts":1741059924.6341374,"msg":"0号worker退出"}
+{"level":"info","ts":1741059924.65103,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059924.6512105,"msg":"0号worker退出"}
+{"level":"info","ts":1741059925.685029,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059925.6852646,"msg":"0号worker退出"}
+{"level":"info","ts":1741059924.777564,"msg":"初始化任务成功"}
+{"level":"info","ts":1741059925.7849474,"msg":"Coordinator分配0号Map任务"}
+{"level":"info","ts":1741059925.7850537,"msg":"Coordinator分配1号Map任务"}
+{"level":"info","ts":1741059925.7850885,"msg":"Coordinator分配2号Map任务"}
+{"level":"info","ts":1741059925.7851546,"msg":"worker 处理0号Map任务"}
+{"level":"info","ts":1741059925.785206,"msg":"worker 处理2号Map任务"}
+{"level":"info","ts":1741059925.7852166,"msg":"worker 处理1号Map任务"}
+{"level":"info","ts":1741059925.7854187,"msg":"Coordinator分配3号Map任务"}
+{"level":"info","ts":1741059925.7855659,"msg":"worker 处理3号Map任务"}
+{"level":"info","ts":1741059925.7881203,"msg":"Coordinator 确认0 Map任务完成"}
+{"level":"info","ts":1741059925.7883642,"msg":"0 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059925.7886736,"msg":"Coordinator分配4号Map任务"}
+{"level":"info","ts":1741059925.7889276,"msg":"worker 处理4号Map任务"}
+{"level":"info","ts":1741059925.7922752,"msg":"Coordinator 确认2 Map任务完成"}
+{"level":"info","ts":1741059925.7923312,"msg":"Coordinator 确认1 Map任务完成"}
+{"level":"info","ts":1741059925.7924795,"msg":"2 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059925.7924984,"msg":"1 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059925.7927399,"msg":"Coordinator分配5号Map任务"}
+{"level":"info","ts":1741059925.7927935,"msg":"Coordinator分配6号Map任务"}
+{"level":"info","ts":1741059925.792901,"msg":"worker 处理6号Map任务"}
+{"level":"info","ts":1741059925.7929027,"msg":"worker 处理5号Map任务"}
+{"level":"info","ts":1741059925.7950907,"msg":"Coordinator 确认6 Map任务完成"}
+{"level":"info","ts":1741059925.7952297,"msg":"6 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059925.795641,"msg":"Coordinator分配7号Map任务"}
+{"level":"info","ts":1741059925.7957883,"msg":"worker 处理7号Map任务"}
+{"level":"info","ts":1741059926.7985055,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059927.585814,"msg":"Coordinator 确认5 Map任务完成"}
+{"level":"info","ts":1741059927.5859916,"msg":"5 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059927.5864735,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059927.7996147,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059928.4393902,"msg":"Coordinator 确认7 Map任务完成"}
+{"level":"info","ts":1741059928.4396045,"msg":"7 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059928.4399927,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059928.5886376,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059928.8033218,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059929.4491072,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059929.5904055,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059929.8058224,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059930.454998,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059930.591799,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059930.8084033,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059931.4812803,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059931.5928175,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059931.8099623,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059932.4941397,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059932.5943687,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059932.8114512,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059933.503055,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059933.6115818,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059933.8128881,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059934.5087852,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059934.6580143,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059934.8153722,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059935.529437,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059935.7117739,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059935.8749611,"msg":"Coordinator分配3号Map任务"}
+{"level":"info","ts":1741059935.8752165,"msg":"worker 处理3号Map任务"}
+{"level":"info","ts":1741059935.8818116,"msg":"Coordinator 确认3 Map任务完成"}
+{"level":"info","ts":1741059935.8820097,"msg":"3 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059935.8823113,"msg":"Coordinator分配4号Map任务"}
+{"level":"info","ts":1741059935.8824625,"msg":"worker 处理4号Map任务"}
+{"level":"info","ts":1741059936.5479882,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059936.765403,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059937.5594661,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059937.806034,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059938.5848212,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059938.8657062,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059939.6216216,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059939.9270527,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059940.6810942,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059940.933714,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059941.1963387,"msg":"Coordinator 确认4 Map任务完成"}
+{"level":"info","ts":1741059941.1966114,"msg":"4 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741059941.1968846,"msg":"所有Map任务完成!修改状态AllMapTaskCompleted为True"}
+{"level":"info","ts":1741059941.1969006,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059941.1969056,"msg":"Coordinator分配0号Reduce任务"}
+{"level":"info","ts":1741059941.1970448,"msg":"worker 处理0号Reduce任务"}
+{"level":"info","ts":1741059941.1971993,"msg":"创建输出文件mr-out-0成功"}
+{"level":"info","ts":1741059941.7414885,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059941.7415407,"msg":"Coordinator分配1号Reduce任务"}
+{"level":"info","ts":1741059941.7416973,"msg":"worker 处理1号Reduce任务"}
+{"level":"info","ts":1741059941.7418492,"msg":"创建输出文件mr-out-1成功"}
+{"level":"info","ts":1741059941.742056,"msg":"Coordinator 确认1 Reduce任务成功"}
+{"level":"info","ts":1741059941.7421684,"msg":"1 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059941.7423584,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059941.742374,"msg":"Coordinator分配2号Reduce任务"}
+{"level":"info","ts":1741059941.7424774,"msg":"worker 处理2号Reduce任务"}
+{"level":"info","ts":1741059941.7426183,"msg":"创建输出文件mr-out-2成功"}
+{"level":"info","ts":1741059941.9415283,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059941.9415734,"msg":"Coordinator分配3号Reduce任务"}
+{"level":"info","ts":1741059941.9417396,"msg":"worker 处理3号Reduce任务"}
+{"level":"info","ts":1741059941.9418929,"msg":"创建输出文件mr-out-3成功"}
+{"level":"info","ts":1741059941.9421425,"msg":"Coordinator 确认3 Reduce任务成功"}
+{"level":"info","ts":1741059941.9422927,"msg":"3 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059941.9425135,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059941.9425287,"msg":"Coordinator分配4号Reduce任务"}
+{"level":"info","ts":1741059941.942632,"msg":"worker 处理4号Reduce任务"}
+{"level":"info","ts":1741059941.942749,"msg":"创建输出文件mr-out-4成功"}
+{"level":"info","ts":1741059941.942958,"msg":"Coordinator 确认4 Reduce任务成功"}
+{"level":"info","ts":1741059941.9430628,"msg":"4 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059941.9432666,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059941.9432812,"msg":"Coordinator分配5号Reduce任务"}
+{"level":"info","ts":1741059941.9433632,"msg":"worker 处理5号Reduce任务"}
+{"level":"info","ts":1741059941.9435098,"msg":"创建输出文件mr-out-5成功"}
+{"level":"info","ts":1741059942.9543595,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059942.9544039,"msg":"Coordinator分配6号Reduce任务"}
+{"level":"info","ts":1741059942.9545488,"msg":"worker 处理6号Reduce任务"}
+{"level":"info","ts":1741059942.9546914,"msg":"创建输出文件mr-out-6成功"}
+{"level":"info","ts":1741059942.9549541,"msg":"Coordinator 确认6 Reduce任务成功"}
+{"level":"info","ts":1741059942.9550872,"msg":"6 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059942.955296,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059942.9553134,"msg":"Coordinator分配7号Reduce任务"}
+{"level":"info","ts":1741059942.9555259,"msg":"worker 处理7号Reduce任务"}
+{"level":"info","ts":1741059942.955686,"msg":"创建输出文件mr-out-7成功"}
+{"level":"info","ts":1741059942.955929,"msg":"Coordinator 确认7 Reduce任务成功"}
+{"level":"info","ts":1741059942.9560506,"msg":"7 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059942.9562588,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059942.956275,"msg":"Coordinator分配8号Reduce任务"}
+{"level":"info","ts":1741059942.9563754,"msg":"worker 处理8号Reduce任务"}
+{"level":"info","ts":1741059942.9564877,"msg":"创建输出文件mr-out-8成功"}
+{"level":"info","ts":1741059942.9567037,"msg":"Coordinator 确认8 Reduce任务成功"}
+{"level":"info","ts":1741059942.9568174,"msg":"8 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059942.9570153,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059942.957031,"msg":"Coordinator分配9号Reduce任务"}
+{"level":"info","ts":1741059942.957139,"msg":"worker 处理9号Reduce任务"}
+{"level":"info","ts":1741059942.9572923,"msg":"创建输出文件mr-out-9成功"}
+{"level":"info","ts":1741059942.9575975,"msg":"Coordinator 确认9 Reduce任务成功"}
+{"level":"info","ts":1741059942.9577074,"msg":"9 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059942.9579234,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059942.958025,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059943.963341,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059943.9635797,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059943.9943566,"msg":"Coordinator 确认0 Reduce任务成功"}
+{"level":"info","ts":1741059943.9945364,"msg":"0 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059943.9962745,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059943.9967787,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059944.1763756,"msg":"Coordinator 确认2 Reduce任务成功"}
+{"level":"info","ts":1741059944.176544,"msg":"2 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059944.1767824,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059944.176919,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059944.9679024,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059944.968107,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059944.9974365,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059944.9976082,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059945.1802988,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059945.1805594,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059945.9697447,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059945.9699237,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059945.9997776,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059945.9999626,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059946.1815312,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059946.1816988,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059946.9713485,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059946.9715943,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059947.0024385,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059947.0027974,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059947.1828728,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059947.183074,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059948.0106788,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059948.0108874,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059948.0438645,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059948.0440514,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059948.1942973,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059948.1944773,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059949.0154624,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059949.015665,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059949.0793786,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059949.0798204,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059949.2545047,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059949.2547088,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059950.0193386,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059950.0195553,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059950.0876997,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059950.0879626,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059950.314873,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059950.3151414,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059951.0221515,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059951.022385,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059951.0926716,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059951.092844,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059951.375918,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059951.3761632,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059952.0241418,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059952.0241804,"msg":"Coordinator分配5号Reduce任务"}
+{"level":"info","ts":1741059952.0243285,"msg":"worker 处理5号Reduce任务"}
+{"level":"info","ts":1741059952.02446,"msg":"创建输出文件mr-out-5成功"}
+{"level":"info","ts":1741059952.0992947,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059952.099521,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059952.4357982,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059952.4360647,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059953.0924313,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059953.0926123,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059953.1058521,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059953.1059964,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059953.4968855,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059953.4970536,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059954.1125934,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059954.1128185,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059954.148973,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059954.149128,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059954.5103066,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059954.5105193,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059955.1191509,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059955.1193836,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059955.180886,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059955.181095,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059955.5141017,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059955.5143027,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059956.146062,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059956.1462426,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059956.241191,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059956.241413,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059956.5734465,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059956.573633,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059957.1535845,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059957.1537817,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059955.378491,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059955.3787525,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059955.7398186,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059955.7400591,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059956.2693048,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059956.2694747,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059956.3966327,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059956.396853,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059956.7990057,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059956.7991858,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059957.2768552,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059957.2771802,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059957.4085233,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059957.408785,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059957.8588042,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059957.8590944,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059958.2848322,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059958.285032,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059958.420839,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059958.421014,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059958.8796823,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059958.8799293,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059959.2922502,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059959.2925339,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059959.4327116,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059959.4329786,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059959.9383812,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059959.9385717,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059960.3000484,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059960.3001006,"msg":"Coordinator分配5号Reduce任务"}
+{"level":"info","ts":1741059960.300327,"msg":"worker 处理5号Reduce任务"}
+{"level":"info","ts":1741059960.3005307,"msg":"创建输出文件mr-out-5成功"}
+{"level":"info","ts":1741059960.434265,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059960.434499,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059960.9684327,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059960.9686842,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059961.44135,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059961.4415448,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059961.9974782,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059961.9977136,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059962.4513574,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059962.4515722,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059963.0576115,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059963.0577943,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059963.4575882,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059963.4577773,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741059963.6021745,"msg":"Coordinator 确认5 Reduce任务成功"}
+{"level":"info","ts":1741059963.6023488,"msg":"5 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741059963.6025777,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059963.6025944,"msg":"所有Reduce任务完成!修改状态NReduceTaskCompleted为True"}
+{"level":"info","ts":1741059963.6027305,"msg":"0号worker退出"}
+{"level":"info","ts":1741059964.1165698,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059964.116776,"msg":"0号worker退出"}
+{"level":"info","ts":1741059964.4711199,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059964.471329,"msg":"0号worker退出"}
+{"level":"info","ts":1741059964.6168394,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059964.6170013,"msg":"0号worker退出"}
+{"level":"info","ts":1741059965.125842,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741059965.1260123,"msg":"0号worker退出"}
+{"level":"info","ts":1741136142.0950525,"msg":"初始化任务成功"}
+{"level":"info","ts":1741136143.1010075,"msg":"Coordinator分配0号Map任务"}
+{"level":"info","ts":1741136143.1012838,"msg":"worker 处理0号Map任务"}
+{"level":"info","ts":1741136143.1016128,"msg":"Coordinator分配1号Map任务"}
+{"level":"info","ts":1741136143.101733,"msg":"Coordinator分配2号Map任务"}
+{"level":"info","ts":1741136143.1017983,"msg":"worker 处理1号Map任务"}
+{"level":"info","ts":1741136143.1019378,"msg":"worker 处理2号Map任务"}
+{"level":"info","ts":1741136143.161018,"msg":"Coordinator 确认0 Map任务完成"}
+{"level":"info","ts":1741136143.1611974,"msg":"0 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136143.161467,"msg":"Coordinator分配3号Map任务"}
+{"level":"info","ts":1741136143.161606,"msg":"worker 处理3号Map任务"}
+{"level":"info","ts":1741136143.286641,"msg":"Coordinator 确认2 Map任务完成"}
+{"level":"info","ts":1741136143.2868094,"msg":"2 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136143.2870255,"msg":"Coordinator分配4号Map任务"}
+{"level":"info","ts":1741136143.2871482,"msg":"worker 处理4号Map任务"}
+{"level":"info","ts":1741136143.294925,"msg":"Coordinator 确认1 Map任务完成"}
+{"level":"info","ts":1741136143.2950866,"msg":"1 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136143.2953198,"msg":"Coordinator分配5号Map任务"}
+{"level":"info","ts":1741136143.295445,"msg":"worker 处理5号Map任务"}
+{"level":"info","ts":1741136143.3555732,"msg":"Coordinator 确认5 Map任务完成"}
+{"level":"info","ts":1741136143.3557422,"msg":"5 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136143.356012,"msg":"Coordinator分配6号Map任务"}
+{"level":"info","ts":1741136143.3561358,"msg":"worker 处理6号Map任务"}
+{"level":"info","ts":1741136143.397629,"msg":"Coordinator 确认3 Map任务完成"}
+{"level":"info","ts":1741136143.3977935,"msg":"3 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136143.39801,"msg":"Coordinator分配7号Map任务"}
+{"level":"info","ts":1741136143.398145,"msg":"worker 处理7号Map任务"}
+{"level":"info","ts":1741136143.5567818,"msg":"Coordinator 确认4 Map任务完成"}
+{"level":"info","ts":1741136143.5569708,"msg":"4 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136143.557313,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136143.5725245,"msg":"Coordinator 确认7 Map任务完成"}
+{"level":"info","ts":1741136143.5726957,"msg":"7 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136143.5731294,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136143.6014838,"msg":"Coordinator 确认6 Map任务完成"}
+{"level":"info","ts":1741136143.6016638,"msg":"6 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136143.6019053,"msg":"所有Map任务完成!修改状态AllMapTaskCompleted为True"}
+{"level":"info","ts":1741136143.6019235,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136143.6019285,"msg":"Coordinator分配0号Reduce任务"}
+{"level":"info","ts":1741136143.6020443,"msg":"worker 处理0号Reduce任务"}
+{"level":"info","ts":1741136143.6246529,"msg":"创建输出文件mr-out-0成功"}
+{"level":"info","ts":1741136143.631839,"msg":"Coordinator 确认0 Reduce任务成功"}
+{"level":"info","ts":1741136143.632012,"msg":"0 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136143.632232,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136143.6322482,"msg":"Coordinator分配1号Reduce任务"}
+{"level":"info","ts":1741136143.6323528,"msg":"worker 处理1号Reduce任务"}
+{"level":"info","ts":1741136143.6530511,"msg":"创建输出文件mr-out-1成功"}
+{"level":"info","ts":1741136143.660331,"msg":"Coordinator 确认1 Reduce任务成功"}
+{"level":"info","ts":1741136143.6606138,"msg":"1 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136143.6609395,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136143.660957,"msg":"Coordinator分配2号Reduce任务"}
+{"level":"info","ts":1741136143.661099,"msg":"worker 处理2号Reduce任务"}
+{"level":"info","ts":1741136143.706701,"msg":"创建输出文件mr-out-2成功"}
+{"level":"info","ts":1741136143.7162173,"msg":"Coordinator 确认2 Reduce任务成功"}
+{"level":"info","ts":1741136143.7166865,"msg":"2 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136143.716956,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136143.7169726,"msg":"Coordinator分配3号Reduce任务"}
+{"level":"info","ts":1741136143.7171805,"msg":"worker 处理3号Reduce任务"}
+{"level":"info","ts":1741136143.7412236,"msg":"创建输出文件mr-out-3成功"}
+{"level":"info","ts":1741136143.7487054,"msg":"Coordinator 确认3 Reduce任务成功"}
+{"level":"info","ts":1741136143.748899,"msg":"3 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136143.7493055,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136143.7493405,"msg":"Coordinator分配4号Reduce任务"}
+{"level":"info","ts":1741136143.749495,"msg":"worker 处理4号Reduce任务"}
+{"level":"info","ts":1741136143.7807972,"msg":"创建输出文件mr-out-4成功"}
+{"level":"info","ts":1741136143.7881746,"msg":"Coordinator 确认4 Reduce任务成功"}
+{"level":"info","ts":1741136143.7883427,"msg":"4 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136143.7885568,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136143.7885733,"msg":"Coordinator分配5号Reduce任务"}
+{"level":"info","ts":1741136143.78869,"msg":"worker 处理5号Reduce任务"}
+{"level":"info","ts":1741136143.8088703,"msg":"创建输出文件mr-out-5成功"}
+{"level":"info","ts":1741136143.8158565,"msg":"Coordinator 确认5 Reduce任务成功"}
+{"level":"info","ts":1741136143.8160655,"msg":"5 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136143.8162894,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136143.8163042,"msg":"Coordinator分配6号Reduce任务"}
+{"level":"info","ts":1741136143.816409,"msg":"worker 处理6号Reduce任务"}
+{"level":"info","ts":1741136143.864775,"msg":"创建输出文件mr-out-6成功"}
+{"level":"info","ts":1741136143.8750124,"msg":"Coordinator 确认6 Reduce任务成功"}
+{"level":"info","ts":1741136143.8751595,"msg":"6 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136143.875367,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136143.8753831,"msg":"Coordinator分配7号Reduce任务"}
+{"level":"info","ts":1741136143.8754883,"msg":"worker 处理7号Reduce任务"}
+{"level":"info","ts":1741136143.9067652,"msg":"创建输出文件mr-out-7成功"}
+{"level":"info","ts":1741136143.9146094,"msg":"Coordinator 确认7 Reduce任务成功"}
+{"level":"info","ts":1741136143.9147735,"msg":"7 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136143.9151018,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136143.9151173,"msg":"Coordinator分配8号Reduce任务"}
+{"level":"info","ts":1741136143.9152515,"msg":"worker 处理8号Reduce任务"}
+{"level":"info","ts":1741136143.9555936,"msg":"创建输出文件mr-out-8成功"}
+{"level":"info","ts":1741136143.9645026,"msg":"Coordinator 确认8 Reduce任务成功"}
+{"level":"info","ts":1741136143.9646597,"msg":"8 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136143.9649098,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136143.9649274,"msg":"Coordinator分配9号Reduce任务"}
+{"level":"info","ts":1741136143.9650483,"msg":"worker 处理9号Reduce任务"}
+{"level":"info","ts":1741136143.9961083,"msg":"创建输出文件mr-out-9成功"}
+{"level":"info","ts":1741136144.003416,"msg":"Coordinator 确认9 Reduce任务成功"}
+{"level":"info","ts":1741136144.0035918,"msg":"9 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136144.0038502,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136144.0038648,"msg":"所有Reduce任务完成!修改状态NReduceTaskCompleted为True"}
+{"level":"info","ts":1741136144.0039873,"msg":"0号worker退出"}
+{"level":"info","ts":1741136144.557861,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136144.5580287,"msg":"0号worker退出"}
+{"level":"info","ts":1741136144.5735447,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136144.5736885,"msg":"0号worker退出"}
+{"level":"info","ts":1741136145.2585995,"msg":"初始化任务成功"}
+{"level":"info","ts":1741136146.2636514,"msg":"Coordinator分配0号Map任务"}
+{"level":"info","ts":1741136146.2637618,"msg":"Coordinator分配1号Map任务"}
+{"level":"info","ts":1741136146.264017,"msg":"worker 处理0号Map任务"}
+{"level":"info","ts":1741136146.2641435,"msg":"worker 处理1号Map任务"}
+{"level":"info","ts":1741136146.2788618,"msg":"Coordinator 确认0 Map任务完成"}
+{"level":"info","ts":1741136146.279024,"msg":"0 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136146.2792373,"msg":"Coordinator分配2号Map任务"}
+{"level":"info","ts":1741136146.2793808,"msg":"worker 处理2号Map任务"}
+{"level":"info","ts":1741136146.293606,"msg":"Coordinator 确认1 Map任务完成"}
+{"level":"info","ts":1741136146.2940464,"msg":"1 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136146.2943356,"msg":"Coordinator分配3号Map任务"}
+{"level":"info","ts":1741136146.2945075,"msg":"worker 处理3号Map任务"}
+{"level":"info","ts":1741136146.3060787,"msg":"Coordinator 确认2 Map任务完成"}
+{"level":"info","ts":1741136146.3062675,"msg":"2 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136146.3065605,"msg":"Coordinator分配4号Map任务"}
+{"level":"info","ts":1741136146.3067167,"msg":"worker 处理4号Map任务"}
+{"level":"info","ts":1741136146.3205953,"msg":"Coordinator 确认3 Map任务完成"}
+{"level":"info","ts":1741136146.320764,"msg":"3 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136146.3209932,"msg":"Coordinator分配5号Map任务"}
+{"level":"info","ts":1741136146.3211086,"msg":"worker 处理5号Map任务"}
+{"level":"info","ts":1741136146.333308,"msg":"Coordinator 确认5 Map任务完成"}
+{"level":"info","ts":1741136146.3335,"msg":"5 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136146.333818,"msg":"Coordinator分配6号Map任务"}
+{"level":"info","ts":1741136146.3339348,"msg":"worker 处理6号Map任务"}
+{"level":"info","ts":1741136146.3350844,"msg":"Coordinator 确认4 Map任务完成"}
+{"level":"info","ts":1741136146.3352358,"msg":"4 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136146.3354611,"msg":"Coordinator分配7号Map任务"}
+{"level":"info","ts":1741136146.335591,"msg":"worker 处理7号Map任务"}
+{"level":"info","ts":1741136146.362691,"msg":"Coordinator 确认7 Map任务完成"}
+{"level":"info","ts":1741136146.362894,"msg":"7 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136146.363316,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136146.3676608,"msg":"Coordinator 确认6 Map任务完成"}
+{"level":"info","ts":1741136146.368157,"msg":"6 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136146.3685482,"msg":"所有Map任务完成!修改状态AllMapTaskCompleted为True"}
+{"level":"info","ts":1741136146.368567,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136146.3685725,"msg":"Coordinator分配0号Reduce任务"}
+{"level":"info","ts":1741136146.3687177,"msg":"worker 处理0号Reduce任务"}
+{"level":"info","ts":1741136146.3721287,"msg":"创建输出文件mr-out-0成功"}
+{"level":"info","ts":1741136146.3789735,"msg":"Coordinator 确认0 Reduce任务成功"}
+{"level":"info","ts":1741136146.3791244,"msg":"0 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136146.3794012,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136146.3794186,"msg":"Coordinator分配1号Reduce任务"}
+{"level":"info","ts":1741136146.3795505,"msg":"worker 处理1号Reduce任务"}
+{"level":"info","ts":1741136146.3833387,"msg":"创建输出文件mr-out-1成功"}
+{"level":"info","ts":1741136146.3903825,"msg":"Coordinator 确认1 Reduce任务成功"}
+{"level":"info","ts":1741136146.3905203,"msg":"1 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136146.3907487,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136146.3907645,"msg":"Coordinator分配2号Reduce任务"}
+{"level":"info","ts":1741136146.3908634,"msg":"worker 处理2号Reduce任务"}
+{"level":"info","ts":1741136146.3941698,"msg":"创建输出文件mr-out-2成功"}
+{"level":"info","ts":1741136146.4013057,"msg":"Coordinator 确认2 Reduce任务成功"}
+{"level":"info","ts":1741136146.4014595,"msg":"2 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136146.4017124,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136146.4017303,"msg":"Coordinator分配3号Reduce任务"}
+{"level":"info","ts":1741136146.4018662,"msg":"worker 处理3号Reduce任务"}
+{"level":"info","ts":1741136146.4051569,"msg":"创建输出文件mr-out-3成功"}
+{"level":"info","ts":1741136146.4119318,"msg":"Coordinator 确认3 Reduce任务成功"}
+{"level":"info","ts":1741136146.4120798,"msg":"3 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136146.4122937,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136146.4123104,"msg":"Coordinator分配4号Reduce任务"}
+{"level":"info","ts":1741136146.4124126,"msg":"worker 处理4号Reduce任务"}
+{"level":"info","ts":1741136146.416236,"msg":"创建输出文件mr-out-4成功"}
+{"level":"info","ts":1741136146.4233923,"msg":"Coordinator 确认4 Reduce任务成功"}
+{"level":"info","ts":1741136146.4235804,"msg":"4 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136146.423852,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136146.4238713,"msg":"Coordinator分配5号Reduce任务"}
+{"level":"info","ts":1741136146.423983,"msg":"worker 处理5号Reduce任务"}
+{"level":"info","ts":1741136146.4275959,"msg":"创建输出文件mr-out-5成功"}
+{"level":"info","ts":1741136146.434966,"msg":"Coordinator 确认5 Reduce任务成功"}
+{"level":"info","ts":1741136146.4351282,"msg":"5 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136146.4353616,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136146.4353778,"msg":"Coordinator分配6号Reduce任务"}
+{"level":"info","ts":1741136146.4354851,"msg":"worker 处理6号Reduce任务"}
+{"level":"info","ts":1741136146.4390862,"msg":"创建输出文件mr-out-6成功"}
+{"level":"info","ts":1741136146.4459987,"msg":"Coordinator 确认6 Reduce任务成功"}
+{"level":"info","ts":1741136146.4462104,"msg":"6 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136146.4465072,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136146.4465332,"msg":"Coordinator分配7号Reduce任务"}
+{"level":"info","ts":1741136146.4467325,"msg":"worker 处理7号Reduce任务"}
+{"level":"info","ts":1741136146.4510305,"msg":"创建输出文件mr-out-7成功"}
+{"level":"info","ts":1741136146.4577405,"msg":"Coordinator 确认7 Reduce任务成功"}
+{"level":"info","ts":1741136146.4579039,"msg":"7 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136146.458141,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136146.458158,"msg":"Coordinator分配8号Reduce任务"}
+{"level":"info","ts":1741136146.458283,"msg":"worker 处理8号Reduce任务"}
+{"level":"info","ts":1741136146.462007,"msg":"创建输出文件mr-out-8成功"}
+{"level":"info","ts":1741136146.469504,"msg":"Coordinator 确认8 Reduce任务成功"}
+{"level":"info","ts":1741136146.4696646,"msg":"8 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136146.4698973,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136146.4699132,"msg":"Coordinator分配9号Reduce任务"}
+{"level":"info","ts":1741136146.4700394,"msg":"worker 处理9号Reduce任务"}
+{"level":"info","ts":1741136146.4736774,"msg":"创建输出文件mr-out-9成功"}
+{"level":"info","ts":1741136146.480719,"msg":"Coordinator 确认9 Reduce任务成功"}
+{"level":"info","ts":1741136146.4808717,"msg":"9 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136146.4811366,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136146.4811513,"msg":"所有Reduce任务完成!修改状态NReduceTaskCompleted为True"}
+{"level":"info","ts":1741136146.4812803,"msg":"0号worker退出"}
+{"level":"info","ts":1741136147.3639505,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136147.3642187,"msg":"0号worker退出"}
+{"level":"info","ts":1741136148.2672417,"msg":"初始化任务成功"}
+{"level":"info","ts":1741136149.2722206,"msg":"Coordinator分配0号Map任务"}
+{"level":"info","ts":1741136149.2723334,"msg":"Coordinator分配1号Map任务"}
+{"level":"info","ts":1741136149.272479,"msg":"worker 处理1号Map任务"}
+{"level":"info","ts":1741136149.2724955,"msg":"worker 处理0号Map任务"}
+{"level":"info","ts":1741136150.2751083,"msg":"Coordinator 确认0 Map任务完成"}
+{"level":"info","ts":1741136150.275292,"msg":"0 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136150.275497,"msg":"Coordinator分配2号Map任务"}
+{"level":"info","ts":1741136150.275711,"msg":"worker 处理2号Map任务"}
+{"level":"info","ts":1741136150.2780461,"msg":"Coordinator 确认1 Map任务完成"}
+{"level":"info","ts":1741136150.2781868,"msg":"1 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136150.2784138,"msg":"Coordinator分配3号Map任务"}
+{"level":"info","ts":1741136150.2785487,"msg":"worker 处理3号Map任务"}
+{"level":"info","ts":1741136151.2817378,"msg":"Coordinator 确认2 Map任务完成"}
+{"level":"info","ts":1741136151.281848,"msg":"Coordinator 确认3 Map任务完成"}
+{"level":"info","ts":1741136151.2819438,"msg":"2 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136151.281991,"msg":"3 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136151.2821255,"msg":"Coordinator分配4号Map任务"}
+{"level":"info","ts":1741136151.2822337,"msg":"Coordinator分配5号Map任务"}
+{"level":"info","ts":1741136151.282273,"msg":"worker 处理4号Map任务"}
+{"level":"info","ts":1741136151.2823443,"msg":"worker 处理5号Map任务"}
+{"level":"info","ts":1741136152.2858577,"msg":"Coordinator 确认4 Map任务完成"}
+{"level":"info","ts":1741136152.2859244,"msg":"Coordinator 确认5 Map任务完成"}
+{"level":"info","ts":1741136152.2860548,"msg":"5 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136152.2860498,"msg":"4 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136152.2862527,"msg":"Coordinator分配6号Map任务"}
+{"level":"info","ts":1741136152.2863483,"msg":"Coordinator分配7号Map任务"}
+{"level":"info","ts":1741136152.2864766,"msg":"worker 处理7号Map任务"}
+{"level":"info","ts":1741136152.2865846,"msg":"worker 处理6号Map任务"}
+{"level":"info","ts":1741136153.2899976,"msg":"Coordinator 确认7 Map任务完成"}
+{"level":"info","ts":1741136153.2901638,"msg":"7 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136153.2905066,"msg":"Coordinator 确认6 Map任务完成"}
+{"level":"info","ts":1741136153.2905724,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136153.290646,"msg":"6 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136153.2908444,"msg":"所有Map任务完成!修改状态AllMapTaskCompleted为True"}
+{"level":"info","ts":1741136153.290858,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136153.2908626,"msg":"Coordinator分配0号Reduce任务"}
+{"level":"info","ts":1741136153.2909667,"msg":"worker 处理0号Reduce任务"}
+{"level":"info","ts":1741136153.291091,"msg":"创建输出文件mr-out-0成功"}
+{"level":"info","ts":1741136153.291318,"msg":"Coordinator 确认0 Reduce任务成功"}
+{"level":"info","ts":1741136153.2914252,"msg":"0 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136153.291623,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136153.2916372,"msg":"Coordinator分配1号Reduce任务"}
+{"level":"info","ts":1741136153.2917376,"msg":"worker 处理1号Reduce任务"}
+{"level":"info","ts":1741136153.2918465,"msg":"创建输出文件mr-out-1成功"}
+{"level":"info","ts":1741136153.2920413,"msg":"Coordinator 确认1 Reduce任务成功"}
+{"level":"info","ts":1741136153.2921517,"msg":"1 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136153.2923307,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136153.2923448,"msg":"Coordinator分配2号Reduce任务"}
+{"level":"info","ts":1741136153.2924445,"msg":"worker 处理2号Reduce任务"}
+{"level":"info","ts":1741136153.292549,"msg":"创建输出文件mr-out-2成功"}
+{"level":"info","ts":1741136153.2927504,"msg":"Coordinator 确认2 Reduce任务成功"}
+{"level":"info","ts":1741136153.292854,"msg":"2 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136153.2930536,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136153.2930696,"msg":"Coordinator分配3号Reduce任务"}
+{"level":"info","ts":1741136153.2931702,"msg":"worker 处理3号Reduce任务"}
+{"level":"info","ts":1741136153.293275,"msg":"创建输出文件mr-out-3成功"}
+{"level":"info","ts":1741136153.293483,"msg":"Coordinator 确认3 Reduce任务成功"}
+{"level":"info","ts":1741136153.293591,"msg":"3 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136153.2938616,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136153.293875,"msg":"Coordinator分配4号Reduce任务"}
+{"level":"info","ts":1741136153.2939749,"msg":"worker 处理4号Reduce任务"}
+{"level":"info","ts":1741136153.294079,"msg":"创建输出文件mr-out-4成功"}
+{"level":"info","ts":1741136153.2942905,"msg":"Coordinator 确认4 Reduce任务成功"}
+{"level":"info","ts":1741136153.294389,"msg":"4 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136153.2946103,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136153.294625,"msg":"Coordinator分配5号Reduce任务"}
+{"level":"info","ts":1741136153.294722,"msg":"worker 处理5号Reduce任务"}
+{"level":"info","ts":1741136153.2948203,"msg":"创建输出文件mr-out-5成功"}
+{"level":"info","ts":1741136153.2950613,"msg":"Coordinator 确认5 Reduce任务成功"}
+{"level":"info","ts":1741136153.2951677,"msg":"5 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136153.295325,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136153.2953405,"msg":"Coordinator分配6号Reduce任务"}
+{"level":"info","ts":1741136153.295463,"msg":"worker 处理6号Reduce任务"}
+{"level":"info","ts":1741136153.2955658,"msg":"创建输出文件mr-out-6成功"}
+{"level":"info","ts":1741136153.2957795,"msg":"Coordinator 确认6 Reduce任务成功"}
+{"level":"info","ts":1741136153.2958834,"msg":"6 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136153.2960832,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136153.296098,"msg":"Coordinator分配7号Reduce任务"}
+{"level":"info","ts":1741136153.2961993,"msg":"worker 处理7号Reduce任务"}
+{"level":"info","ts":1741136153.2963066,"msg":"创建输出文件mr-out-7成功"}
+{"level":"info","ts":1741136153.2965705,"msg":"Coordinator 确认7 Reduce任务成功"}
+{"level":"info","ts":1741136153.2966828,"msg":"7 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136153.2968574,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136153.2968714,"msg":"Coordinator分配8号Reduce任务"}
+{"level":"info","ts":1741136153.2969663,"msg":"worker 处理8号Reduce任务"}
+{"level":"info","ts":1741136153.2970817,"msg":"创建输出文件mr-out-8成功"}
+{"level":"info","ts":1741136153.2972908,"msg":"Coordinator 确认8 Reduce任务成功"}
+{"level":"info","ts":1741136153.2973824,"msg":"8 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136153.2980635,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136153.2980824,"msg":"Coordinator分配9号Reduce任务"}
+{"level":"info","ts":1741136153.2981892,"msg":"worker 处理9号Reduce任务"}
+{"level":"info","ts":1741136153.2983036,"msg":"创建输出文件mr-out-9成功"}
+{"level":"info","ts":1741136153.2985744,"msg":"Coordinator 确认9 Reduce任务成功"}
+{"level":"info","ts":1741136153.2987049,"msg":"9 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136153.2989147,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136153.2989292,"msg":"所有Reduce任务完成!修改状态NReduceTaskCompleted为True"}
+{"level":"info","ts":1741136153.2990322,"msg":"0号worker退出"}
+{"level":"info","ts":1741136154.291046,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136154.291232,"msg":"0号worker退出"}
+{"level":"info","ts":1741136155.2762287,"msg":"初始化任务成功"}
+{"level":"info","ts":1741136156.2824907,"msg":"Coordinator分配0号Map任务"}
+{"level":"info","ts":1741136156.2826893,"msg":"worker 处理0号Map任务"}
+{"level":"info","ts":1741136156.2829177,"msg":"Coordinator分配1号Map任务"}
+{"level":"info","ts":1741136156.2831156,"msg":"worker 处理1号Map任务"}
+{"level":"info","ts":1741136156.2855682,"msg":"Coordinator 确认0 Map任务完成"}
+{"level":"info","ts":1741136156.285714,"msg":"0 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136156.285959,"msg":"Coordinator分配2号Map任务"}
+{"level":"info","ts":1741136156.286095,"msg":"worker 处理2号Map任务"}
+{"level":"info","ts":1741136156.2881997,"msg":"Coordinator 确认1 Map任务完成"}
+{"level":"info","ts":1741136156.2883406,"msg":"1 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136156.2887073,"msg":"Coordinator分配3号Map任务"}
+{"level":"info","ts":1741136156.2888374,"msg":"worker 处理3号Map任务"}
+{"level":"info","ts":1741136156.2924278,"msg":"Coordinator 确认2 Map任务完成"}
+{"level":"info","ts":1741136156.2926161,"msg":"2 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136156.2927737,"msg":"Coordinator 确认3 Map任务完成"}
+{"level":"info","ts":1741136156.2928827,"msg":"Coordinator分配4号Map任务"}
+{"level":"info","ts":1741136156.2928977,"msg":"3 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136156.2930217,"msg":"worker 处理4号Map任务"}
+{"level":"info","ts":1741136156.293113,"msg":"Coordinator分配5号Map任务"}
+{"level":"info","ts":1741136156.2932494,"msg":"worker 处理5号Map任务"}
+{"level":"info","ts":1741136156.2960675,"msg":"Coordinator 确认4 Map任务完成"}
+{"level":"info","ts":1741136156.2961047,"msg":"Coordinator 确认5 Map任务完成"}
+{"level":"info","ts":1741136156.2962193,"msg":"5 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136156.2962298,"msg":"4 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136156.2965255,"msg":"Coordinator分配6号Map任务"}
+{"level":"info","ts":1741136156.2965708,"msg":"Coordinator分配7号Map任务"}
+{"level":"info","ts":1741136156.296688,"msg":"worker 处理6号Map任务"}
+{"level":"info","ts":1741136156.2967024,"msg":"worker 处理7号Map任务"}
+{"level":"info","ts":1741136156.299287,"msg":"Coordinator 确认7 Map任务完成"}
+{"level":"info","ts":1741136156.299415,"msg":"7 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136156.299639,"msg":"Coordinator 确认6 Map任务完成"}
+{"level":"info","ts":1741136156.2996917,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136156.2997966,"msg":"6 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136156.300018,"msg":"所有Map任务完成!修改状态AllMapTaskCompleted为True"}
+{"level":"info","ts":1741136156.3000336,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136156.300038,"msg":"Coordinator分配0号Reduce任务"}
+{"level":"info","ts":1741136156.3001475,"msg":"worker 处理0号Reduce任务"}
+{"level":"info","ts":1741136156.3002698,"msg":"创建输出文件mr-out-0成功"}
+{"level":"info","ts":1741136157.3007007,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136157.3007689,"msg":"Coordinator分配1号Reduce任务"}
+{"level":"info","ts":1741136157.3011334,"msg":"worker 处理1号Reduce任务"}
+{"level":"info","ts":1741136157.3013835,"msg":"创建输出文件mr-out-1成功"}
+{"level":"info","ts":1741136157.3020022,"msg":"Coordinator 确认0 Reduce任务成功"}
+{"level":"info","ts":1741136157.30217,"msg":"0 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136157.303289,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136157.3033104,"msg":"Coordinator分配2号Reduce任务"}
+{"level":"info","ts":1741136157.3034785,"msg":"worker 处理2号Reduce任务"}
+{"level":"info","ts":1741136157.303655,"msg":"创建输出文件mr-out-2成功"}
+{"level":"info","ts":1741136158.3032827,"msg":"Coordinator 确认1 Reduce任务成功"}
+{"level":"info","ts":1741136158.30351,"msg":"1 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136158.3038108,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136158.303829,"msg":"Coordinator分配3号Reduce任务"}
+{"level":"info","ts":1741136158.303961,"msg":"worker 处理3号Reduce任务"}
+{"level":"info","ts":1741136158.304109,"msg":"创建输出文件mr-out-3成功"}
+{"level":"info","ts":1741136158.3042297,"msg":"Coordinator 确认2 Reduce任务成功"}
+{"level":"info","ts":1741136158.3043497,"msg":"2 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136158.3045595,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136158.3045762,"msg":"Coordinator分配4号Reduce任务"}
+{"level":"info","ts":1741136158.304765,"msg":"worker 处理4号Reduce任务"}
+{"level":"info","ts":1741136158.3049247,"msg":"创建输出文件mr-out-4成功"}
+{"level":"info","ts":1741136160.3054266,"msg":"Coordinator 确认3 Reduce任务成功"}
+{"level":"info","ts":1741136160.3056464,"msg":"3 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136160.305725,"msg":"Coordinator 确认4 Reduce任务成功"}
+{"level":"info","ts":1741136160.3058693,"msg":"4 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136160.3059335,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136160.305963,"msg":"Coordinator分配5号Reduce任务"}
+{"level":"info","ts":1741136160.3061216,"msg":"worker 处理5号Reduce任务"}
+{"level":"info","ts":1741136160.3062232,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136160.3062718,"msg":"Coordinator分配6号Reduce任务"}
+{"level":"info","ts":1741136160.3063104,"msg":"创建输出文件mr-out-5成功"}
+{"level":"info","ts":1741136160.306457,"msg":"worker 处理6号Reduce任务"}
+{"level":"info","ts":1741136160.3065915,"msg":"创建输出文件mr-out-6成功"}
+{"level":"info","ts":1741136161.30724,"msg":"Coordinator 确认5 Reduce任务成功"}
+{"level":"info","ts":1741136161.3073368,"msg":"Coordinator 确认6 Reduce任务成功"}
+{"level":"info","ts":1741136161.3074472,"msg":"5 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136161.307484,"msg":"6 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136161.3076568,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136161.3076718,"msg":"Coordinator分配7号Reduce任务"}
+{"level":"info","ts":1741136161.3076818,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136161.3076987,"msg":"Coordinator分配8号Reduce任务"}
+{"level":"info","ts":1741136161.3077726,"msg":"worker 处理7号Reduce任务"}
+{"level":"info","ts":1741136161.307815,"msg":"worker 处理8号Reduce任务"}
+{"level":"info","ts":1741136161.3078942,"msg":"创建输出文件mr-out-7成功"}
+{"level":"info","ts":1741136161.3079147,"msg":"创建输出文件mr-out-8成功"}
+{"level":"info","ts":1741136161.3081214,"msg":"Coordinator 确认7 Reduce任务成功"}
+{"level":"info","ts":1741136161.3081918,"msg":"Coordinator 确认8 Reduce任务成功"}
+{"level":"info","ts":1741136161.3082614,"msg":"7 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136161.308337,"msg":"8 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136161.3084629,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136161.308477,"msg":"Coordinator分配9号Reduce任务"}
+{"level":"info","ts":1741136161.3085258,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136161.3085806,"msg":"worker 处理9号Reduce任务"}
+{"level":"info","ts":1741136161.3086402,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136161.3087068,"msg":"创建输出文件mr-out-9成功"}
+{"level":"info","ts":1741136162.3097882,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136162.3099399,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136162.310176,"msg":"Coordinator 确认9 Reduce任务成功"}
+{"level":"info","ts":1741136162.3103375,"msg":"9 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136162.3105457,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136162.3105595,"msg":"所有Reduce任务完成!修改状态NReduceTaskCompleted为True"}
+{"level":"info","ts":1741136162.3106883,"msg":"0号worker退出"}
+{"level":"info","ts":1741136163.3113663,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136163.311574,"msg":"0号worker退出"}
+{"level":"info","ts":1741136164.287263,"msg":"初始化任务成功"}
+{"level":"info","ts":1741136165.2933512,"msg":"Coordinator分配0号Map任务"}
+{"level":"info","ts":1741136165.2934365,"msg":"Coordinator分配1号Map任务"}
+{"level":"info","ts":1741136165.2935615,"msg":"worker 处理1号Map任务"}
+{"level":"info","ts":1741136165.293569,"msg":"worker 处理0号Map任务"}
+{"level":"info","ts":1741136168.8108218,"msg":"Coordinator 确认1 Map任务完成"}
+{"level":"info","ts":1741136168.8110175,"msg":"1 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136168.8112466,"msg":"Coordinator分配2号Map任务"}
+{"level":"info","ts":1741136168.8113754,"msg":"worker 处理2号Map任务"}
+{"level":"info","ts":1741136169.5079615,"msg":"Coordinator 确认0 Map任务完成"}
+{"level":"info","ts":1741136169.5081475,"msg":"0 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136169.5084543,"msg":"Coordinator分配3号Map任务"}
+{"level":"info","ts":1741136169.5087214,"msg":"worker 处理3号Map任务"}
+{"level":"info","ts":1741136173.5859044,"msg":"Coordinator 确认2 Map任务完成"}
+{"level":"info","ts":1741136173.586057,"msg":"2 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136173.5862546,"msg":"Coordinator分配4号Map任务"}
+{"level":"info","ts":1741136173.586383,"msg":"worker 处理4号Map任务"}
+{"level":"info","ts":1741136173.9995096,"msg":"Coordinator 确认3 Map任务完成"}
+{"level":"info","ts":1741136173.9996777,"msg":"3 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136174.0001192,"msg":"Coordinator分配5号Map任务"}
+{"level":"info","ts":1741136174.0002608,"msg":"worker 处理5号Map任务"}
+{"level":"info","ts":1741136176.598917,"msg":"Coordinator 确认4 Map任务完成"}
+{"level":"info","ts":1741136176.5990925,"msg":"4 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136176.599305,"msg":"Coordinator分配6号Map任务"}
+{"level":"info","ts":1741136176.599414,"msg":"worker 处理6号Map任务"}
+{"level":"info","ts":1741136178.8365088,"msg":"Coordinator 确认5 Map任务完成"}
+{"level":"info","ts":1741136178.8366838,"msg":"5 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136178.8369017,"msg":"Coordinator分配7号Map任务"}
+{"level":"info","ts":1741136178.8370416,"msg":"worker 处理7号Map任务"}
+{"level":"info","ts":1741136179.1853046,"msg":"Coordinator 确认6 Map任务完成"}
+{"level":"info","ts":1741136179.1854646,"msg":"6 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136179.185764,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136180.1916893,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136181.216756,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136182.2205782,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136182.3252063,"msg":"Coordinator 确认7 Map任务完成"}
+{"level":"info","ts":1741136182.3253481,"msg":"7 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136182.3255668,"msg":"所有Map任务完成!修改状态AllMapTaskCompleted为True"}
+{"level":"info","ts":1741136182.325582,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136182.3255873,"msg":"Coordinator分配0号Reduce任务"}
+{"level":"info","ts":1741136182.3257036,"msg":"worker 处理0号Reduce任务"}
+{"level":"info","ts":1741136182.3258312,"msg":"创建输出文件mr-out-0成功"}
+{"level":"info","ts":1741136182.326125,"msg":"Coordinator 确认0 Reduce任务成功"}
+{"level":"info","ts":1741136182.3262498,"msg":"0 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136182.326466,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136182.326483,"msg":"Coordinator分配1号Reduce任务"}
+{"level":"info","ts":1741136182.3265843,"msg":"worker 处理1号Reduce任务"}
+{"level":"info","ts":1741136182.3266945,"msg":"创建输出文件mr-out-1成功"}
+{"level":"info","ts":1741136182.3269224,"msg":"Coordinator 确认1 Reduce任务成功"}
+{"level":"info","ts":1741136182.3270302,"msg":"1 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136182.3272545,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136182.3272758,"msg":"Coordinator分配2号Reduce任务"}
+{"level":"info","ts":1741136182.3273826,"msg":"worker 处理2号Reduce任务"}
+{"level":"info","ts":1741136182.327517,"msg":"创建输出文件mr-out-2成功"}
+{"level":"info","ts":1741136182.3279743,"msg":"Coordinator 确认2 Reduce任务成功"}
+{"level":"info","ts":1741136182.3280823,"msg":"2 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136182.3282857,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136182.3283038,"msg":"Coordinator分配3号Reduce任务"}
+{"level":"info","ts":1741136182.3284101,"msg":"worker 处理3号Reduce任务"}
+{"level":"info","ts":1741136182.3285198,"msg":"创建输出文件mr-out-3成功"}
+{"level":"info","ts":1741136182.328729,"msg":"Coordinator 确认3 Reduce任务成功"}
+{"level":"info","ts":1741136182.328842,"msg":"3 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136182.3290179,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136182.3290324,"msg":"Coordinator分配4号Reduce任务"}
+{"level":"info","ts":1741136182.3291438,"msg":"worker 处理4号Reduce任务"}
+{"level":"info","ts":1741136182.3292494,"msg":"创建输出文件mr-out-4成功"}
+{"level":"info","ts":1741136182.3294575,"msg":"Coordinator 确认4 Reduce任务成功"}
+{"level":"info","ts":1741136182.3295634,"msg":"4 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136182.3297675,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136182.329782,"msg":"Coordinator分配5号Reduce任务"}
+{"level":"info","ts":1741136182.3298888,"msg":"worker 处理5号Reduce任务"}
+{"level":"info","ts":1741136182.3299985,"msg":"创建输出文件mr-out-5成功"}
+{"level":"info","ts":1741136182.3301966,"msg":"Coordinator 确认5 Reduce任务成功"}
+{"level":"info","ts":1741136182.3303094,"msg":"5 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136182.33051,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136182.3305259,"msg":"Coordinator分配6号Reduce任务"}
+{"level":"info","ts":1741136182.3306253,"msg":"worker 处理6号Reduce任务"}
+{"level":"info","ts":1741136182.3307297,"msg":"创建输出文件mr-out-6成功"}
+{"level":"info","ts":1741136182.3309538,"msg":"Coordinator 确认6 Reduce任务成功"}
+{"level":"info","ts":1741136182.3310685,"msg":"6 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136182.3312693,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136182.331284,"msg":"Coordinator分配7号Reduce任务"}
+{"level":"info","ts":1741136182.3313785,"msg":"worker 处理7号Reduce任务"}
+{"level":"info","ts":1741136182.3314865,"msg":"创建输出文件mr-out-7成功"}
+{"level":"info","ts":1741136182.3316941,"msg":"Coordinator 确认7 Reduce任务成功"}
+{"level":"info","ts":1741136182.3318002,"msg":"7 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136182.3319912,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136182.3320065,"msg":"Coordinator分配8号Reduce任务"}
+{"level":"info","ts":1741136182.3321073,"msg":"worker 处理8号Reduce任务"}
+{"level":"info","ts":1741136182.332219,"msg":"创建输出文件mr-out-8成功"}
+{"level":"info","ts":1741136182.3324435,"msg":"Coordinator 确认8 Reduce任务成功"}
+{"level":"info","ts":1741136182.332556,"msg":"8 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136182.3327699,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136182.3327851,"msg":"Coordinator分配9号Reduce任务"}
+{"level":"info","ts":1741136182.3328943,"msg":"worker 处理9号Reduce任务"}
+{"level":"info","ts":1741136182.3330007,"msg":"创建输出文件mr-out-9成功"}
+{"level":"info","ts":1741136182.3331983,"msg":"Coordinator 确认9 Reduce任务成功"}
+{"level":"info","ts":1741136182.3333154,"msg":"9 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136182.3335094,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136182.3335233,"msg":"所有Reduce任务完成!修改状态NReduceTaskCompleted为True"}
+{"level":"info","ts":1741136182.3336284,"msg":"0号worker退出"}
+{"level":"info","ts":1741136183.2298896,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136183.2301154,"msg":"0号worker退出"}
+{"level":"info","ts":1741136183.2381275,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136183.2381833,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136183.238283,"msg":"0号worker退出"}
+{"level":"info","ts":1741136183.238327,"msg":"0号worker退出"}
+{"level":"info","ts":1741136184.308611,"msg":"初始化任务成功"}
+{"level":"info","ts":1741136185.3143985,"msg":"Coordinator分配0号Map任务"}
+{"level":"info","ts":1741136185.3146458,"msg":"worker 处理0号Map任务"}
+{"level":"info","ts":1741136185.3148205,"msg":"Coordinator分配1号Map任务"}
+{"level":"info","ts":1741136185.3148973,"msg":"Coordinator分配2号Map任务"}
+{"level":"info","ts":1741136185.3149977,"msg":"worker 处理1号Map任务"}
+{"level":"info","ts":1741136185.3150437,"msg":"worker 处理2号Map任务"}
+{"level":"info","ts":1741136185.317218,"msg":"Coordinator 确认0 Map任务完成"}
+{"level":"info","ts":1741136185.3173926,"msg":"0 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136185.3176877,"msg":"Coordinator分配3号Map任务"}
+{"level":"info","ts":1741136185.317818,"msg":"worker 处理3号Map任务"}
+{"level":"info","ts":1741136185.3208575,"msg":"Coordinator 确认2 Map任务完成"}
+{"level":"info","ts":1741136185.3210251,"msg":"2 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136185.3211462,"msg":"Coordinator 确认1 Map任务完成"}
+{"level":"info","ts":1741136185.321289,"msg":"1 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136185.3213751,"msg":"Coordinator分配4号Map任务"}
+{"level":"info","ts":1741136185.321494,"msg":"worker 处理4号Map任务"}
+{"level":"info","ts":1741136185.321522,"msg":"Coordinator分配5号Map任务"}
+{"level":"info","ts":1741136185.3216608,"msg":"worker 处理5号Map任务"}
+{"level":"info","ts":1741136185.3220754,"msg":"Coordinator 确认3 Map任务完成"}
+{"level":"info","ts":1741136185.32221,"msg":"3 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136185.322407,"msg":"Coordinator分配6号Map任务"}
+{"level":"info","ts":1741136185.3225336,"msg":"worker 处理6号Map任务"}
+{"level":"info","ts":1741136185.322907,"msg":"Coordinator 确认5 Map任务完成"}
+{"level":"info","ts":1741136185.3230205,"msg":"5 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136185.3232174,"msg":"Coordinator分配7号Map任务"}
+{"level":"info","ts":1741136185.3233204,"msg":"worker 处理7号Map任务"}
+{"level":"info","ts":1741136185.323914,"msg":"Coordinator 确认4 Map任务完成"}
+{"level":"info","ts":1741136185.3240373,"msg":"4 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136185.324385,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136185.3260474,"msg":"Coordinator 确认6 Map任务完成"}
+{"level":"info","ts":1741136185.3263423,"msg":"6 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136185.3266518,"msg":"Coordinator 确认7 Map任务完成"}
+{"level":"info","ts":1741136185.3267014,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136185.3267646,"msg":"7 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136185.3270485,"msg":"所有Map任务完成!修改状态AllMapTaskCompleted为True"}
+{"level":"info","ts":1741136185.3270638,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136185.3270686,"msg":"Coordinator分配0号Reduce任务"}
+{"level":"info","ts":1741136185.3271775,"msg":"worker 处理0号Reduce任务"}
+{"level":"info","ts":1741136185.3272922,"msg":"创建输出文件mr-out-0成功"}
+{"level":"info","ts":1741136185.3275104,"msg":"Coordinator 确认0 Reduce任务成功"}
+{"level":"info","ts":1741136185.327619,"msg":"0 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136185.3278558,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136185.3278756,"msg":"Coordinator分配1号Reduce任务"}
+{"level":"info","ts":1741136185.3279872,"msg":"worker 处理1号Reduce任务"}
+{"level":"info","ts":1741136185.3280888,"msg":"创建输出文件mr-out-1成功"}
+{"level":"info","ts":1741136185.3283775,"msg":"Coordinator 确认1 Reduce任务成功"}
+{"level":"info","ts":1741136185.3284965,"msg":"1 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136185.3291173,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136185.3291328,"msg":"Coordinator分配2号Reduce任务"}
+{"level":"info","ts":1741136185.3292408,"msg":"worker 处理2号Reduce任务"}
+{"level":"info","ts":1741136185.329357,"msg":"创建输出文件mr-out-2成功"}
+{"level":"info","ts":1741136186.3252854,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136186.3253567,"msg":"Coordinator分配3号Reduce任务"}
+{"level":"info","ts":1741136186.3256168,"msg":"worker 处理3号Reduce任务"}
+{"level":"info","ts":1741136186.3258948,"msg":"创建输出文件mr-out-3成功"}
+{"level":"info","ts":1741136186.3263648,"msg":"Coordinator 确认3 Reduce任务成功"}
+{"level":"info","ts":1741136186.3265407,"msg":"3 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136186.3268669,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136186.326883,"msg":"Coordinator分配4号Reduce任务"}
+{"level":"info","ts":1741136186.3270264,"msg":"worker 处理4号Reduce任务"}
+{"level":"info","ts":1741136186.3272853,"msg":"创建输出文件mr-out-4成功"}
+{"level":"info","ts":1741136186.3275518,"msg":"Coordinator 确认4 Reduce任务成功"}
+{"level":"info","ts":1741136186.3276923,"msg":"4 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136186.3279467,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136186.3279624,"msg":"Coordinator分配5号Reduce任务"}
+{"level":"info","ts":1741136186.328092,"msg":"worker 处理5号Reduce任务"}
+{"level":"info","ts":1741136186.3282118,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136186.3282309,"msg":"Coordinator分配6号Reduce任务"}
+{"level":"info","ts":1741136186.3282394,"msg":"创建输出文件mr-out-5成功"}
+{"level":"info","ts":1741136186.3285885,"msg":"worker 处理6号Reduce任务"}
+{"level":"info","ts":1741136186.3287764,"msg":"Coordinator 确认5 Reduce任务成功"}
+{"level":"info","ts":1741136186.3288684,"msg":"创建输出文件mr-out-6成功"}
+{"level":"info","ts":1741136186.329159,"msg":"5 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136186.3297262,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136186.3297703,"msg":"Coordinator分配7号Reduce任务"}
+{"level":"info","ts":1741136186.3300314,"msg":"worker 处理7号Reduce任务"}
+{"level":"info","ts":1741136186.3301814,"msg":"创建输出文件mr-out-7成功"}
+{"level":"info","ts":1741136186.3304012,"msg":"Coordinator 确认7 Reduce任务成功"}
+{"level":"info","ts":1741136186.3305264,"msg":"7 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136186.3307316,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136186.3307462,"msg":"Coordinator分配8号Reduce任务"}
+{"level":"info","ts":1741136186.330842,"msg":"worker 处理8号Reduce任务"}
+{"level":"info","ts":1741136186.3309517,"msg":"创建输出文件mr-out-8成功"}
+{"level":"info","ts":1741136186.3311782,"msg":"Coordinator 确认8 Reduce任务成功"}
+{"level":"info","ts":1741136186.3312874,"msg":"8 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136186.33148,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136186.331494,"msg":"Coordinator分配9号Reduce任务"}
+{"level":"info","ts":1741136186.3315887,"msg":"worker 处理9号Reduce任务"}
+{"level":"info","ts":1741136186.331703,"msg":"创建输出文件mr-out-9成功"}
+{"level":"info","ts":1741136186.3319356,"msg":"Coordinator 确认9 Reduce任务成功"}
+{"level":"info","ts":1741136186.3320432,"msg":"9 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136186.3322592,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136186.3323786,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136187.33362,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136187.3337812,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136188.334981,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136188.3351772,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136188.3354363,"msg":"Coordinator 确认2 Reduce任务成功"}
+{"level":"info","ts":1741136188.3355863,"msg":"2 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136188.3357751,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136188.3358822,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136189.3317091,"msg":"Coordinator 确认6 Reduce任务成功"}
+{"level":"info","ts":1741136189.3319273,"msg":"6 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136189.332301,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136189.332317,"msg":"所有Reduce任务完成!修改状态NReduceTaskCompleted为True"}
+{"level":"info","ts":1741136189.3324454,"msg":"0号worker退出"}
+{"level":"info","ts":1741136189.3357174,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136189.3358915,"msg":"0号worker退出"}
+{"level":"info","ts":1741136189.3363287,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136189.3364868,"msg":"0号worker退出"}
+{"level":"info","ts":1741136191.344888,"msg":"初始化任务成功"}
+{"level":"info","ts":1741136192.353903,"msg":"Coordinator分配0号Map任务"}
+{"level":"info","ts":1741136192.3541613,"msg":"Coordinator分配1号Map任务"}
+{"level":"info","ts":1741136192.3541565,"msg":"worker 处理0号Map任务"}
+{"level":"info","ts":1741136192.3544695,"msg":"worker 处理1号Map任务"}
+{"level":"info","ts":1741136192.354501,"msg":"Coordinator分配2号Map任务"}
+{"level":"info","ts":1741136192.3546414,"msg":"worker 处理2号Map任务"}
+{"level":"info","ts":1741136192.3547852,"msg":"Coordinator分配3号Map任务"}
+{"level":"info","ts":1741136192.35495,"msg":"worker 处理3号Map任务"}
+{"level":"info","ts":1741136192.3613327,"msg":"Coordinator 确认3 Map任务完成"}
+{"level":"info","ts":1741136192.3615487,"msg":"3 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136192.3619244,"msg":"Coordinator分配4号Map任务"}
+{"level":"info","ts":1741136192.362073,"msg":"worker 处理4号Map任务"}
+{"level":"info","ts":1741136193.0500703,"msg":"Coordinator 确认1 Map任务完成"}
+{"level":"info","ts":1741136193.0502582,"msg":"1 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136193.0506456,"msg":"Coordinator分配5号Map任务"}
+{"level":"info","ts":1741136193.0508087,"msg":"worker 处理5号Map任务"}
+{"level":"info","ts":1741136193.3706813,"msg":"Coordinator分配6号Map任务"}
+{"level":"info","ts":1741136193.3708615,"msg":"worker 处理6号Map任务"}
+{"level":"info","ts":1741136193.3762233,"msg":"Coordinator 确认6 Map任务完成"}
+{"level":"info","ts":1741136193.376402,"msg":"6 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136193.3767295,"msg":"Coordinator分配7号Map任务"}
+{"level":"info","ts":1741136193.3768625,"msg":"worker 处理7号Map任务"}
+{"level":"info","ts":1741136194.385265,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136194.6171174,"msg":"Coordinator 确认5 Map任务完成"}
+{"level":"info","ts":1741136194.6172717,"msg":"5 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136194.6175969,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136195.3868062,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136195.6181855,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136196.3875,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136196.6188717,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136197.3881266,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136197.6194804,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136198.3892937,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136198.6201963,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136199.3901384,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136199.6218758,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136200.3910034,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136200.6225536,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136201.3917975,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136201.5474153,"msg":"Coordinator 确认4 Map任务完成"}
+{"level":"info","ts":1741136201.547578,"msg":"4 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136201.547935,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136201.6238608,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136202.3932865,"msg":"Coordinator分配0号Map任务"}
+{"level":"info","ts":1741136202.393472,"msg":"worker 处理0号Map任务"}
+{"level":"info","ts":1741136202.548588,"msg":"Coordinator分配2号Map任务"}
+{"level":"info","ts":1741136202.5488517,"msg":"worker 处理2号Map任务"}
+{"level":"info","ts":1741136202.6255014,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136203.5581195,"msg":"Coordinator分配7号Map任务"}
+{"level":"info","ts":1741136203.5582843,"msg":"worker 处理7号Map任务"}
+{"level":"info","ts":1741136203.5628068,"msg":"Coordinator 确认7 Map任务完成"}
+{"level":"info","ts":1741136203.562941,"msg":"7 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136203.5632854,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136203.6269379,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136204.5646243,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136204.6278098,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136205.5710154,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136205.632183,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136206.571817,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136206.6328897,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136207.5796077,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136207.642411,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136208.5803475,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136208.6479847,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136209.5812147,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136209.6486375,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136210.0846663,"msg":"Coordinator 确认0 Map任务完成"}
+{"level":"info","ts":1741136210.0848703,"msg":"0 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136210.0852091,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136210.5819955,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136210.6492646,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136211.0858455,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136211.5827377,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136211.6499052,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136212.0869596,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136212.5872014,"msg":"Coordinator分配2号Map任务"}
+{"level":"info","ts":1741136212.5874772,"msg":"worker 处理2号Map任务"}
+{"level":"info","ts":1741136212.658409,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136213.0894623,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136213.6039782,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136213.6659062,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136214.091707,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136214.6092253,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136214.678349,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136215.0932553,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136215.614628,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136215.6852536,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136216.095603,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136216.615661,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136216.6867278,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136217.0972176,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136217.6169322,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136217.6878655,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136218.0987833,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136218.6185496,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136218.6883168,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136219.1004143,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136219.6202106,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136219.6889324,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136220.1021554,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136220.6234555,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136220.6900628,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136221.103319,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136221.6306014,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136221.6912646,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136222.1052985,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136222.6375594,"msg":"Coordinator分配2号Map任务"}
+{"level":"info","ts":1741136222.637805,"msg":"worker 处理2号Map任务"}
+{"level":"info","ts":1741136222.6424525,"msg":"Coordinator 确认2 Map任务完成"}
+{"level":"info","ts":1741136222.6426206,"msg":"2 woker 执行 Map 任务完毕"}
+{"level":"info","ts":1741136222.642879,"msg":"所有Map任务完成!修改状态AllMapTaskCompleted为True"}
+{"level":"info","ts":1741136222.642894,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136222.6428995,"msg":"Coordinator分配0号Reduce任务"}
+{"level":"info","ts":1741136222.643046,"msg":"worker 处理0号Reduce任务"}
+{"level":"info","ts":1741136222.6431837,"msg":"创建输出文件mr-out-0成功"}
+{"level":"info","ts":1741136222.6921597,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136222.6921988,"msg":"Coordinator分配1号Reduce任务"}
+{"level":"info","ts":1741136222.6923757,"msg":"worker 处理1号Reduce任务"}
+{"level":"info","ts":1741136222.6925213,"msg":"创建输出文件mr-out-1成功"}
+{"level":"info","ts":1741136222.6927361,"msg":"Coordinator 确认1 Reduce任务成功"}
+{"level":"info","ts":1741136222.6928747,"msg":"1 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136222.6930728,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136222.6930885,"msg":"Coordinator分配2号Reduce任务"}
+{"level":"info","ts":1741136222.693204,"msg":"worker 处理2号Reduce任务"}
+{"level":"info","ts":1741136222.6933675,"msg":"创建输出文件mr-out-2成功"}
+{"level":"info","ts":1741136223.1060486,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136223.106092,"msg":"Coordinator分配3号Reduce任务"}
+{"level":"info","ts":1741136223.106237,"msg":"worker 处理3号Reduce任务"}
+{"level":"info","ts":1741136223.1063945,"msg":"创建输出文件mr-out-3成功"}
+{"level":"info","ts":1741136223.106608,"msg":"Coordinator 确认3 Reduce任务成功"}
+{"level":"info","ts":1741136223.1067288,"msg":"3 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136223.1069467,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136223.1069605,"msg":"Coordinator分配4号Reduce任务"}
+{"level":"info","ts":1741136223.1070693,"msg":"worker 处理4号Reduce任务"}
+{"level":"info","ts":1741136223.1071951,"msg":"创建输出文件mr-out-4成功"}
+{"level":"info","ts":1741136223.1074016,"msg":"Coordinator 确认4 Reduce任务成功"}
+{"level":"info","ts":1741136223.1075227,"msg":"4 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136223.1077313,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136223.1077461,"msg":"Coordinator分配5号Reduce任务"}
+{"level":"info","ts":1741136223.1078591,"msg":"worker 处理5号Reduce任务"}
+{"level":"info","ts":1741136223.1079793,"msg":"创建输出文件mr-out-5成功"}
+{"level":"info","ts":1741136224.0946531,"msg":"Coordinator 确认2 Reduce任务成功"}
+{"level":"info","ts":1741136224.094828,"msg":"2 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136224.0950396,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136224.0950546,"msg":"Coordinator分配6号Reduce任务"}
+{"level":"info","ts":1741136224.095251,"msg":"worker 处理6号Reduce任务"}
+{"level":"info","ts":1741136224.0956345,"msg":"创建输出文件mr-out-6成功"}
+{"level":"info","ts":1741136224.095884,"msg":"Coordinator 确认6 Reduce任务成功"}
+{"level":"info","ts":1741136224.0959947,"msg":"6 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136224.0961869,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136224.096202,"msg":"Coordinator分配7号Reduce任务"}
+{"level":"info","ts":1741136224.0963008,"msg":"worker 处理7号Reduce任务"}
+{"level":"info","ts":1741136224.0964947,"msg":"创建输出文件mr-out-7成功"}
+{"level":"info","ts":1741136224.0967298,"msg":"Coordinator 确认7 Reduce任务成功"}
+{"level":"info","ts":1741136224.0968425,"msg":"7 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136224.0970337,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136224.0970478,"msg":"Coordinator分配8号Reduce任务"}
+{"level":"info","ts":1741136224.0971582,"msg":"worker 处理8号Reduce任务"}
+{"level":"info","ts":1741136224.0972586,"msg":"创建输出文件mr-out-8成功"}
+{"level":"info","ts":1741136224.0974653,"msg":"Coordinator 确认8 Reduce任务成功"}
+{"level":"info","ts":1741136224.097557,"msg":"8 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136224.0977457,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136224.0977588,"msg":"Coordinator分配9号Reduce任务"}
+{"level":"info","ts":1741136224.0978544,"msg":"worker 处理9号Reduce任务"}
+{"level":"info","ts":1741136224.0979698,"msg":"创建输出文件mr-out-9成功"}
+{"level":"info","ts":1741136224.0981817,"msg":"Coordinator 确认9 Reduce任务成功"}
+{"level":"info","ts":1741136224.098283,"msg":"9 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136224.0984845,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136224.0985854,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136225.1014748,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136225.10175,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136226.1030638,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136226.1032457,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136226.3368385,"msg":"Coordinator 确认5 Reduce任务成功"}
+{"level":"info","ts":1741136226.337114,"msg":"5 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136226.3373342,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136226.3374798,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136227.1046822,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136227.1048493,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136227.3388016,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136227.339057,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136228.1061385,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136228.1063101,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136228.3395593,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136228.3397274,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136229.1079865,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136229.1082737,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136229.3401659,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136229.340339,"msg":"0号worker进入等待"}
+{"level":"info","ts":1741136230.0459013,"msg":"Coordinator 确认0 Reduce任务成功"}
+{"level":"info","ts":1741136230.0461247,"msg":"0 woker 执行 Reduce 任务完毕"}
+{"level":"info","ts":1741136230.0464392,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136230.046457,"msg":"所有Reduce任务完成!修改状态NReduceTaskCompleted为True"}
+{"level":"info","ts":1741136230.0465627,"msg":"0号worker退出"}
+{"level":"info","ts":1741136230.1097126,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136230.1098802,"msg":"0号worker退出"}
+{"level":"info","ts":1741136230.3412127,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136230.3416736,"msg":"0号worker退出"}
+{"level":"info","ts":1741136231.0584116,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136231.0586557,"msg":"0号worker退出"}
+{"level":"info","ts":1741136231.1210272,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136231.1212919,"msg":"0号worker退出"}
+{"level":"info","ts":1741136231.3511238,"msg":"Coordinator 开始分配Reduce任务"}
+{"level":"info","ts":1741136231.3513536,"msg":"0号worker退出"}
