@@ -1,19 +1,13 @@
 package raft
 
-//
-// Raft tests.
-//
-// we will use the original test_test.go to test your code for grading.
-// so, while you can modify this code to help you debug, please
-// test with the original before submitting.
-//
-
-import "testing"
-import "fmt"
-import "time"
-import "math/rand"
-import "sync/atomic"
-import "sync"
+import (
+	"fmt"
+	"math/rand"
+	"sync"
+	"sync/atomic"
+	"testing"
+	"time"
+)
 
 // The tester generously allows solutions to complete elections in one second
 // (much more than the paper's range of timeouts).
@@ -21,8 +15,11 @@ const RaftElectionTimeout = 1000 * time.Millisecond
 
 func TestInitialElection3A(t *testing.T) {
 	servers := 3
+	InitLogger()
 	cfg := make_config(t, servers, false, false)
 	defer cfg.cleanup()
+
+	// 初始化log
 
 	cfg.begin("Test (3A): initial election")
 
@@ -1267,4 +1264,43 @@ func TestSnapshotInit3D(t *testing.T) {
 	// do another op to trigger potential bug
 	cfg.one(rand.Int(), servers, true)
 	cfg.end()
+}
+
+func Test_internalChurn(t *testing.T) {
+	type args struct {
+		t          *testing.T
+		unreliable bool
+	}
+	tests := []struct {
+		name string
+		args args
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			internalChurn(tt.args.t, tt.args.unreliable)
+		})
+	}
+}
+
+func Test_snapcommon(t *testing.T) {
+	type args struct {
+		t          *testing.T
+		name       string
+		disconnect bool
+		reliable   bool
+		crash      bool
+	}
+	tests := []struct {
+		name string
+		args args
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			snapcommon(tt.args.t, tt.args.name, tt.args.disconnect, tt.args.reliable, tt.args.crash)
+		})
+	}
 }
