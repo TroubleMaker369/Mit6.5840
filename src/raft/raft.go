@@ -20,6 +20,7 @@ package raft
 import (
 	//	"bytes"
 
+	"sort"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -149,6 +150,11 @@ func (rf *Raft) isLogUpToDate(index int, term int) bool {
 	}
 }
 
+// IsLogMatch 用来检查 Leader 的 PrevLogIndex 和 PrevLogTerm 是否与 Follower 的日志匹配
+func (rf *Raft) IsLogMatch(index int, term int) bool {
+	return index <= rf.getLastlog().Index && term == rf.logs[index-rf.getFirstlog().Index].Term
+}
+
 // the service using Raft (e.g. a k/v server) wants to start
 // agreement on the next command to be appended to Raft's log. if this
 // server isn't the leader, returns false. otherwise start the
@@ -162,13 +168,27 @@ func (rf *Raft) isLogUpToDate(index int, term int) bool {
 // term. the third return value is true if this server believes it is
 // the leader.
 func (rf *Raft) Start(command interface{}) (int, int, bool) {
-	index := -1
-	term := -1
-	isLeader := true
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+	if rf.state != Leader {
+		return -1, -1, false
+	}
+	//每个raft服务器的第一条日志是对于他自己的
+	newLogIndex := rf.getLastlog().Index + 1
+	rf.logs = append(rf.logs, LogEntry{
+		Term:    rf.currentTerm,
+		Index:   newLogIndex,
+		Command: command,
+	})
+	rf.matchIndex[rf.me], rf.nextIndex[rf.me] = newLogIndex, newLogIndex+1
+	DPrintf("{Node %v} starts agreement on a new log entry with command %v in term %v", rf.me, command, rf.currentTerm)
+
+	// 为所有服务器广播日志添加条目
+	rf.BroadcastHeartbeat(false)
 
 	// Your code here (3B).
 
-	return index, term, isLeader
+	return newLogIndex, rf.currentTerm, true
 }
 
 // the tester doesn't halt goroutines created by Raft after each test,
@@ -218,7 +238,9 @@ func (rf *Raft) StartElection() {
 	rf.votedFor = rf.me //为自己投票
 	args := rf.genRequestVoteArgs()
 	grantedVotes := 1
+	DPrintf("{Node %v} starts election with RequestVoteArgs %v", rf.me, args)
 	for peer := range rf.peers {
+		// fmt.Println(peer)
 		if peer == rf.me {
 			continue
 		}
@@ -227,12 +249,14 @@ func (rf *Raft) StartElection() {
 			if rf.sendRequestVote(peer, args, reply) {
 				rf.mu.Lock()
 				defer rf.mu.Unlock()
+				DPrintf("{Node %v} receives RequestVoteReply %v from {Node %v} after sending RequestVoteArgs %v", rf.me, reply, peer, args)
 				if args.Term == rf.currentTerm && rf.state == Candidate { //这里再次检查是避免rpc在调用过程中超时导致，当前Term和state发生了变化
 					if reply.VoteGranted { //该peer 投票给了这个候选人
 						grantedVotes += 1
 						if grantedVotes > len(rf.peers)/2 {
+							DPrintf("{Node %v} receives over half of the votes", rf.me)
 							rf.ChangeState(Leader)
-							rf.BroadcastHeartbeat()
+							rf.BroadcastHeartbeat(true)
 						}
 					} else if reply.Term > rf.currentTerm { //没有投票给候选人，说明选人要么日志落后 要么周期落后
 						rf.ChangeState(Follower)
@@ -244,38 +268,19 @@ func (rf *Raft) StartElection() {
 	}
 }
 
-// BroadcastHeartbeat Leader发送心跳
-func (rf *Raft) BroadcastHeartbeat() {
+// BroadcastHeartbeat Leader发送心跳  新的心跳机制，负责日志复制，和日志回退重发
+func (rf *Raft) BroadcastHeartbeat(isHeartbeat bool) {
 	for peer := range rf.peers {
 		if peer == rf.me {
 			continue
 		}
-		SugarLogger.Infof("%v Server 发送心跳", rf.me)
-		go func(peer int) { //向每个领导者发送心跳，所以要开go协整
-			//发送心跳
-			rf.mu.RLock()
-			if rf.state != Leader { //检查状态，因为可能在发送心跳中途已经有新的领导人出现了，自己的状态已经被修改了
-				rf.mu.RUnlock()
-				return
-			}
-			//
-			args := rf.genAppendEntriesArgs()
-			rf.mu.RUnlock()
-			reply := new(AppendEntriesReply)
-			if rf.sendAppendEntries(peer, args, reply) {
-				rf.mu.Lock()
-				if rf.currentTerm == args.Term && rf.state == Leader { //检查经过RPC后，当前leader的状态有没有改变
-					if !reply.Success {
-						//说明集群中可能有新的Leader出现了或者更新的Leader
-						if reply.Term > rf.currentTerm {
-							rf.ChangeState(Follower)
-							rf.currentTerm, rf.votedFor = reply.Term, -1
-						}
-					}
-				}
-				rf.mu.Unlock()
-			}
-		}(peer)
+		if isHeartbeat {
+			//应该立即将心跳发送给所有的对等体
+			go rf.replicateOnceRound(peer)
+		} else {
+			//只需要向复制器发送信号，将日志条目发送给对等体
+			rf.replicatorCond[peer].Signal()
+		}
 	}
 }
 
@@ -298,7 +303,9 @@ func (rf *Raft) ticker() {
 			rf.mu.Lock()
 			if rf.state == Leader {
 				//重新发送心跳
-				rf.BroadcastHeartbeat()
+				DPrintf("{Node %v} BroadcastHeartbeat", rf.me)
+				rf.BroadcastHeartbeat(true)
+
 				rf.heartbeatTimer.Reset(StableHeartbeatTimeout())
 			}
 			rf.mu.Unlock()
@@ -314,6 +321,122 @@ func (rf *Raft) ticker() {
 	}
 }
 
+// advanceCommitIndexForLeader 通过检查大多数节点的日志复制状态，安全地推进 Leader 的提交索引
+func (rf *Raft) advanceCommitIndexForLeader() {
+	n := len(rf.matchIndex)
+	sortMatchIndex := make([]int, n)
+	copy(sortMatchIndex, rf.matchIndex)
+	sort.Ints(sortMatchIndex)
+	//获取已知在大多数服务器上复制的索引最高的日志条目的索引
+	newCommitIndex := sortMatchIndex[n-(n/2+1)]
+	if newCommitIndex > rf.commitIndex {
+		if rf.IsLogMatch(newCommitIndex, rf.currentTerm) { //只能提交本周期内的日志
+			DPrintf("{Node %v} advances commitIndex from %v to %v in term %v", rf.me, rf.commitIndex, newCommitIndex, rf.currentTerm)
+			rf.commitIndex = newCommitIndex
+			rf.applyCond.Signal()
+		}
+	}
+}
+
+// applier 应用日志条目
+func (rf *Raft) applier() {
+	for !rf.killed() {
+		rf.mu.Lock()
+		// 检查commitIndex是否可用
+		if rf.commitIndex <= rf.lastApplied {
+			//需要等待commitIndex被推进
+			rf.applyCond.Wait()
+		}
+		// 应用日志条目到状态机
+		firstLogIndex, commitIndex, lastApplied := rf.getFirstlog().Index, rf.commitIndex, rf.lastApplied
+		entries := make([]LogEntry, commitIndex-lastApplied)
+		copy(entries, rf.logs[lastApplied-firstLogIndex+1:commitIndex-firstLogIndex+1])
+		rf.mu.Unlock()
+
+		//将申请消息发送到applyCh以获取服务/状态机副本
+		for _, entry := range entries {
+			rf.applych <- ApplyMsg{
+				CommandValid: true,
+				Command:      entry.Command,
+				CommandIndex: entry.Index,
+			}
+		}
+		rf.mu.Lock()
+		DPrintf("{Node %v} applies log entries from index %v to %v in term %v", rf.me, lastApplied+1, commitIndex, rf.currentTerm)
+		// 使用commitIndex而不是rf.commitIndex，因为rf.commitIndex可能在Unlock（）和Lock（）期间发生变化。
+		rf.lastApplied = commitIndex
+		rf.mu.Unlock()
+	}
+}
+
+// needReplicating 判断peer是否需要日志条目复制
+func (rf *Raft) needReplicating(peer int) bool {
+	rf.mu.RLock()
+	defer rf.mu.RUnlock()
+	return rf.state == Leader && rf.matchIndex[peer] < rf.getLastlog().Index
+}
+
+// replicateOnceRound
+func (rf *Raft) replicateOnceRound(peer int) {
+	rf.mu.RLock()
+	if rf.state != Leader {
+		rf.mu.RUnlock()
+		return
+	}
+	prevLogIndex := rf.nextIndex[peer] - 1
+	args := rf.genAppendEntriesArgs(prevLogIndex)
+	rf.mu.RUnlock()
+	reply := new(AppendEntriesReply)
+	if rf.sendAppendEntries(peer, args, reply) {
+		rf.mu.Lock()
+		//如果rpc 后 还是leader 且周期没变化
+		if args.Term == rf.currentTerm && rf.state == Leader {
+			if !reply.Success { //日志一致性检查失败
+				if reply.Term > rf.currentTerm { //脑裂，或者已经宕机的leader突然又活过来  可能发生了网络分区，或者这个 Leader 是一个刚刚恢复但任期落后的旧 Leader
+					//标签当前服务器 已经过时了，重新变成follower
+					rf.ChangeState(Follower)
+					rf.currentTerm, rf.votedFor = reply.Term, -1
+				} else if reply.Term == rf.currentTerm { //说明follow的周期和leader周期一致，说明是条目出了问题
+					//减少nextIndex并重试
+					rf.nextIndex[peer] = reply.ConfictIndex
+					// TODO: optimize the nextIndex finding, maybe use binary search
+					if reply.ConfictTerm != -1 {
+						firstLogIndex := rf.getFirstlog().Index
+						for index := args.PrevLogIndex - 1; index >= firstLogIndex; index-- {
+							if rf.logs[index-firstLogIndex].Term == reply.ConfictTerm {
+								rf.nextIndex[peer] = index
+								break
+							}
+						}
+					}
+				}
+			} else { //日志匹配成功 提交
+				rf.matchIndex[peer] = args.PrevLogIndex + len(args.Entries)
+				rf.nextIndex[peer] = rf.matchIndex[peer] + 1
+				//advance commitIndex if possible
+				rf.advanceCommitIndexForLeader()
+			}
+		}
+		rf.mu.Unlock()
+	}
+}
+
+// replicator 日志复制
+func (rf *Raft) replicator(peer int) {
+	rf.replicatorCond[peer].L.Lock()
+	defer rf.replicatorCond[peer].L.Unlock()
+	for !rf.killed() {
+		for !rf.needReplicating(peer) {
+			// send log entries to peer
+			SugarLogger.Infof("%v raft wait ", peer)
+			rf.replicatorCond[peer].Wait()
+		}
+		// send log entries to peer
+		SugarLogger.Infof("%v raft send Log entries ", rf.me)
+		rf.replicateOnceRound(peer)
+	}
+}
+
 // the service or tester wants to create a Raft server. the ports
 // of all the Raft servers (including this one) are in peers[]. this
 // server's port is peers[me]. all the servers' peers[] arrays
@@ -323,6 +446,8 @@ func (rf *Raft) ticker() {
 // tester or service expects Raft to send ApplyMsg messages.
 // Make() must return quickly, so it should start goroutines
 // for any long-running work.
+
+// time go test --run 3B
 func Make(peers []*labrpc.ClientEnd, me int,
 	persister *Persister, applyCh chan ApplyMsg) *Raft {
 	rf := &Raft{
@@ -347,31 +472,38 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		electionTimer:  time.NewTimer(RandomElectionTimeout()),
 		heartbeatTimer: time.NewTimer(StableHeartbeatTimeout()),
 
-		applych: applyCh,
-		// replicatorCond: make([]*sync.Cond, len(peers)),
+		applych:        applyCh,
+		replicatorCond: make([]*sync.Cond, len(peers)),
 	}
 
-	SugarLogger.Infof("%v raft Server Initialization", me)
+	// SugarLogger.Infof("%v raft Server Initialization", me)
 	// Your initialization code here (3A, 3B, 3C).
-	// rf.applyCond = sync.NewCond(&rf.mu)
 
 	// initialize from state persisted before a crash
-	rf.readPersist(persister.ReadRaftState())
+	// rf.readPersist(persister.ReadRaftState())
+
+	// should use mu to protect applyCond, avoid other goroutine to change the critical section
+	rf.applyCond = sync.NewCond(&rf.mu)
 
 	// initialize nextIndex and matchIndex, and start replicator goroutine
-	// for peer := range peers {
-	// 	rf.matchIndex[peer], rf.nextIndex[peer] = 0, rf.getLastLog().Index+1
-	// 	if peer != rf.me {
-	// 		rf.replicatorCond[peer] = sync.NewCond(&sync.Mutex{})
+	// 应该使用mu来保护应用程序，避免其他例程更改临界区
+	for peer := range peers {
+		rf.matchIndex[peer], rf.nextIndex[peer] = 0, rf.getLastlog().Index+1
+		if peer != rf.me {
+			rf.replicatorCond[peer] = sync.NewCond(&sync.Mutex{})
+			// 启动复制程序例程以向对等节点发送日志项
+			go rf.replicator(peer)
+		}
+	}
 
-	// 		go rf.replicator(peer)
-	// 	}
-	// }
+	SugarLogger.Infof("%v raft Server Initialization replicatorCond Finish", me)
 	// start ticker goroutine to start elections
 	go rf.ticker()
 
+	SugarLogger.Infof("%v raft Server Initialization select and heartbeat Finish ", me)
 	// start apply goroutine to apply log entries to state machine
-	// go rf.applier()
+	go rf.applier()
+	SugarLogger.Infof("%v raft Server Initialization Log Applier Finish ", me)
 
 	return rf
 }

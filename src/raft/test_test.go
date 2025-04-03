@@ -122,6 +122,7 @@ func TestManyElections3A(t *testing.T) {
 
 func TestBasicAgree3B(t *testing.T) {
 	servers := 3
+	InitLogger()
 	cfg := make_config(t, servers, false, false)
 	defer cfg.cleanup()
 
@@ -147,6 +148,7 @@ func TestBasicAgree3B(t *testing.T) {
 // each command is sent to each peer just once.
 func TestRPCBytes3B(t *testing.T) {
 	servers := 3
+	InitLogger()
 	cfg := make_config(t, servers, false, false)
 	defer cfg.cleanup()
 
@@ -179,6 +181,7 @@ func TestRPCBytes3B(t *testing.T) {
 // test just failure of followers.
 func TestFollowerFailure3B(t *testing.T) {
 	servers := 3
+	InitLogger()
 	cfg := make_config(t, servers, false, false)
 	defer cfg.cleanup()
 
@@ -224,6 +227,7 @@ func TestFollowerFailure3B(t *testing.T) {
 // test just failure of leaders.
 func TestLeaderFailure3B(t *testing.T) {
 	servers := 3
+	InitLogger()
 	cfg := make_config(t, servers, false, false)
 	defer cfg.cleanup()
 
@@ -265,6 +269,7 @@ func TestLeaderFailure3B(t *testing.T) {
 // disconnect and re-connect.
 func TestFailAgree3B(t *testing.T) {
 	servers := 3
+	InitLogger()
 	cfg := make_config(t, servers, false, false)
 	defer cfg.cleanup()
 
@@ -299,6 +304,7 @@ func TestFailAgree3B(t *testing.T) {
 
 func TestFailNoAgree3B(t *testing.T) {
 	servers := 5
+	InitLogger()
 	cfg := make_config(t, servers, false, false)
 	defer cfg.cleanup()
 
@@ -350,6 +356,7 @@ func TestFailNoAgree3B(t *testing.T) {
 
 func TestConcurrentStarts3B(t *testing.T) {
 	servers := 3
+	InitLogger()
 	cfg := make_config(t, servers, false, false)
 	defer cfg.cleanup()
 
@@ -451,6 +458,7 @@ loop:
 
 func TestRejoin3B(t *testing.T) {
 	servers := 3
+	InitLogger()
 	cfg := make_config(t, servers, false, false)
 	defer cfg.cleanup()
 
@@ -489,6 +497,7 @@ func TestRejoin3B(t *testing.T) {
 
 func TestBackup3B(t *testing.T) {
 	servers := 5
+	InitLogger()
 	cfg := make_config(t, servers, false, false)
 	defer cfg.cleanup()
 
@@ -561,6 +570,7 @@ func TestBackup3B(t *testing.T) {
 
 func TestCount3B(t *testing.T) {
 	servers := 3
+	InitLogger()
 	cfg := make_config(t, servers, false, false)
 	defer cfg.cleanup()
 

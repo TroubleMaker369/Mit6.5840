@@ -69,7 +69,6 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	rf.votedFor = args.CandidateId
 	rf.electionTimer.Reset(RandomElectionTimeout())
 	reply.Term, reply.VoteGranted = rf.currentTerm, true
-	return
 }
 
 // example code to send a RequestVote RPC to a server.
@@ -112,7 +111,7 @@ func (rf *Raft) sendRequestVote(server int, args *RequestVoteArgs, reply *Reques
 type AppendEntriesArgs struct {
 	Term         int
 	LeaderId     int
-	PrevLogIndex int
+	PrevLogIndex int // 最后一条日志的索引
 	PrevLogTerm  int
 	LeaderCommit int
 	Entries      []LogEntry
@@ -120,16 +119,28 @@ type AppendEntriesArgs struct {
 
 // AppendEntriesReply 心跳消息结构
 type AppendEntriesReply struct {
-	Term    int
-	Success bool
+	Term         int
+	Success      bool
+	ConfictIndex int
+	ConfictTerm  int
 }
 
 // genAppendEntriesArgs  构造请求投票参数
-func (rf *Raft) genAppendEntriesArgs() *AppendEntriesArgs {
+func (rf *Raft) genAppendEntriesArgs(PrevLogIndex int) *AppendEntriesArgs {
+	// Leader 认为的 Follower 最后一条日志的绝对索引
+	firstLogIndex := rf.getFirstlog().Index
+	entries := make([]LogEntry, len(rf.logs[PrevLogIndex-firstLogIndex+1:]))
+	copy(entries, rf.logs[PrevLogIndex-firstLogIndex+1:])
+
 	args := &AppendEntriesArgs{
-		Term:     rf.currentTerm,
-		LeaderId: rf.me,
+		Term:         rf.currentTerm,                           // Leader 当前任期
+		LeaderId:     rf.me,                                    // Leader ID
+		PrevLogIndex: PrevLogIndex,                             // 期望的 Follower 最后日志索引
+		PrevLogTerm:  rf.logs[PrevLogIndex-firstLogIndex].Term, // 对应日志的任期
+		LeaderCommit: rf.commitIndex,                           // Leader 的提交索引
+		Entries:      entries,                                  // 需要复制的日志条目
 	}
+
 	return args
 }
 
@@ -150,6 +161,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		reply.Term, reply.Success = rf.currentTerm, false
 		return
 	}
+
 	//如果当前周期落后发送周期，说明当前Server未更新leader,首先设置该Raft的周期
 	if args.Term > rf.currentTerm {
 		rf.currentTerm, rf.votedFor = args.Term, -1
@@ -157,6 +169,61 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	// 改为Follow
 	rf.ChangeState(Follower)
 	rf.electionTimer.Reset(RandomElectionTimeout())
+
+	//如果在当前peer的 prevLogIndex中没有一个词条匹配prevLogTerm的条目，则返回false
+	//args.PrevLogIndex "我认为你的日志在索引 PrevLogIndex 处的条目应该和我的一致"
+	if args.PrevLogIndex < rf.getFirstlog().Index {
+		reply.Term, reply.Success = rf.currentTerm, false
+		return
+	}
+	//检查日志是否匹配，如果不匹配，返回冲突索引和词条
+	//如果现有项与新项冲突(相同的索引，但不同周期）删除现有条目及其后面的所有条目
+	if !rf.IsLogMatch(args.PrevLogIndex, args.PrevLogTerm) {
+		reply.Term, reply.Success = rf.currentTerm, false
+		lastLogIndex := rf.getLastlog().Index
+		//找出冲突项的第一个索引
+		if lastLogIndex < args.PrevLogIndex { //如果follower的最后一个索引比leader期望的索引小，则最后一个的前一个位置为矛盾位置
+			reply.ConfictIndex, reply.ConfictTerm = lastLogIndex+1, -1
+		} else { //如果follower的最后一个索引比leader期望的索引大，且第一个索引比leader期望的索引小，则说明能follow存在该索引，是该索引的周期不匹配
+			firtstLogIndex := rf.getFirstlog().Index
+			//找出冲突项的第一个索引
+			index := args.PrevLogIndex
+			//这里index需不需要减1
+			for index >= firtstLogIndex && rf.logs[index-firtstLogIndex].Term == args.PrevLogTerm {
+				index--
+			}
+			//告诉 Leader："我有一段连续的、任期为 args.PrevLogTerm 的日志，从索引 ConflictIndex 开始"
+			// reply.ConfictIndex, reply.ConfictTerm = index+1, args.PrevLogTerm
+
+			//更标准的 Raft 优化实现有时会返回 Follower 在 args.PrevLogIndex 处实际的任期 rf.logs[args.PrevLogIndex - firtstLogIndex].Term 作为 ConfictTerm，
+			//让 Leader 可以更快地在其自身日志中查找匹配的任期。
+			reply.ConfictIndex, reply.ConfictTerm = index+1, rf.logs[args.PrevLogIndex-firtstLogIndex].Term
+		}
+		return
+	}
+	//追加日志中没有的任何新条目
+	firstLogIndex := rf.getFirstlog().Index
+	for index, entry := range args.Entries {
+		// 找到现有日志和附加日志的连接点
+
+		// 对每个条目检查两种情况：
+		// 超出范围：entry.Index-firstLogIndex >= len(rf.logs)
+		// 任期冲突：rf.logs[entry.Index-firstLogIndex].Term != entry.Term
+		// 当发现首个不匹配点，执行日志截断和追加，然后退出循环
+		if entry.Index-firstLogIndex >= len(rf.logs) || rf.logs[entry.Index-firstLogIndex].Term != entry.Term {
+			rf.logs = append(rf.logs[:entry.Index-firstLogIndex], args.Entries[index:]...)
+			break
+		}
+	}
+
+	//如果leaderCommit > commitIndex，设置commitIndex = min（leaderCommit，最后一个新条目的索引）（论文）
+	newCommitIndex := Min(args.LeaderCommit, rf.getLastlog().Index)
+	if newCommitIndex > rf.commitIndex {
+		DPrintf("{Node %v} advances commitIndex from %v to %v with leaderCommit %v in term %v", rf.me, rf.commitIndex, newCommitIndex, args.LeaderCommit, rf.currentTerm)
+		rf.commitIndex = newCommitIndex
+		//通知有新的已提交日志需要应用到状态机
+		rf.applyCond.Signal()
+	}
 
 	reply.Term, reply.Success = rf.currentTerm, true
 }
