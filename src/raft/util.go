@@ -43,7 +43,7 @@ var GlobalRand = &LockedRand{
 
 // RandomElectionTimeout 设置随机选举超时时间
 func RandomElectionTimeout() time.Duration {
-	return time.Duration(ElectionTimeout+GlobalRand.Intn(ElectionTimeout)) * time.Microsecond //1000-1999之间
+	return time.Duration(ElectionTimeout+GlobalRand.Intn(ElectionTimeout)) * time.Millisecond //1000-1999之间
 }
 
 // StableHeartbeatTimeout 设置心跳超时时间
