@@ -20,12 +20,14 @@ package raft
 import (
 	//	"bytes"
 
+	"bytes"
 	"sort"
 	"sync"
 	"sync/atomic"
 	"time"
 
 	//	"6.5840/labgob"
+	"6.5840/labgob"
 	"6.5840/labrpc"
 )
 
@@ -98,15 +100,20 @@ func (rf *Raft) GetState() (int, bool) {
 // second argument to persister.Save().
 // after you've implemented snapshots, pass the current snapshot
 // (or nil if there's not yet a snapshot).
+func (rf *Raft) encodeState() []byte {
+	w := new(bytes.Buffer)
+	e := labgob.NewEncoder(w)
+	e.Encode(rf.currentTerm)
+	e.Encode(rf.votedFor)
+	e.Encode(rf.logs)
+	return w.Bytes()
+
+}
+
+// persist 持久化
 func (rf *Raft) persist() {
-	// Your code here (3C).
-	// Example:
-	// w := new(bytes.Buffer)
-	// e := labgob.NewEncoder(w)
-	// e.Encode(rf.xxx)
-	// e.Encode(rf.yyy)
-	// raftstate := w.Bytes()
-	// rf.persister.Save(raftstate, nil)
+	rf.persister.Save(rf.encodeState(), nil)
+
 }
 
 // restore previously persisted state.
@@ -114,19 +121,17 @@ func (rf *Raft) readPersist(data []byte) {
 	if data == nil || len(data) < 1 { // bootstrap without any state?
 		return
 	}
-	// Your code here (3C).
-	// Example:
-	// r := bytes.NewBuffer(data)
-	// d := labgob.NewDecoder(r)
-	// var xxx
-	// var yyy
-	// if d.Decode(&xxx) != nil ||
-	//    d.Decode(&yyy) != nil {
-	//   error...
-	// } else {
-	//   rf.xxx = xxx
-	//   rf.yyy = yyy
-	// }
+	r := bytes.NewBuffer(data)
+	d := labgob.NewDecoder(r)
+	var currentTerm, voteFor int
+	var logs []LogEntry
+	if d.Decode(&currentTerm) != nil ||
+		d.Decode(&voteFor) != nil || d.Decode(&logs) != nil {
+		DPrintf("{Node %v} fails to decode persisted state", rf.me)
+	} else {
+		rf.currentTerm, rf.votedFor, rf.logs = currentTerm, voteFor, logs
+		rf.lastApplied, rf.commitIndex = rf.getFirstlog().Index, rf.getFirstlog().Index
+	}
 }
 
 // the service says it has created a snapshot that has
@@ -180,6 +185,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 		Index:   newLogIndex,
 		Command: command,
 	})
+	rf.persist()
 	rf.matchIndex[rf.me], rf.nextIndex[rf.me] = newLogIndex, newLogIndex+1
 	DPrintf("{Node %v} starts agreement on a new log entry with command %v in term %v", rf.me, command, rf.currentTerm)
 
@@ -236,6 +242,7 @@ func (rf *Raft) ChangeState(NewState NodeState) {
 func (rf *Raft) StartElection() {
 	//这里应该不加锁
 	rf.votedFor = rf.me //为自己投票
+	rf.persist()
 	args := rf.genRequestVoteArgs()
 	grantedVotes := 1
 	DPrintf("{Node %v} starts election with RequestVoteArgs %v", rf.me, args)
@@ -261,6 +268,7 @@ func (rf *Raft) StartElection() {
 					} else if reply.Term > rf.currentTerm { //没有投票给候选人，说明选人要么日志落后 要么周期落后
 						rf.ChangeState(Follower)
 						rf.currentTerm, rf.votedFor = reply.Term, -1
+						rf.persist()
 					}
 				}
 			}
@@ -293,7 +301,7 @@ func (rf *Raft) ticker() {
 			rf.mu.Lock()
 			rf.ChangeState(Candidate)
 			rf.currentTerm += 1
-			// rf.persist()
+			rf.persist()
 			// start election
 			rf.StartElection()
 			rf.electionTimer.Reset(RandomElectionTimeout()) //在分裂投票的情况下，重置选举计时器
@@ -396,18 +404,36 @@ func (rf *Raft) replicateOnceRound(peer int) {
 					//标签当前服务器 已经过时了，重新变成follower
 					rf.ChangeState(Follower)
 					rf.currentTerm, rf.votedFor = reply.Term, -1
+					rf.persist()
 				} else if reply.Term == rf.currentTerm { //说明follow的周期和leader周期一致，说明是条目出了问题
-					//减少nextIndex并重试
-					rf.nextIndex[peer] = reply.ConfictIndex
-					// TODO: optimize the nextIndex finding, maybe use binary search
+					// //减少nextIndex并重试
+					// rf.nextIndex[peer] = reply.ConfictIndex
+					// // TODO: optimize the nextIndex finding, maybe use binary search
+					// if reply.ConfictTerm != -1 {
+					// 	firstLogIndex := rf.getFirstlog().Index
+					// 	for index := args.PrevLogIndex; index >= firstLogIndex; index-- {
+					// 		if rf.logs[index-firstLogIndex].Term == reply.ConfictTerm {
+					// 			rf.nextIndex[peer] = index
+					// 			break
+					// 		}
+					// 	}
+					// }
+					firstLogIndex := rf.getFirstlog().Index
 					if reply.ConfictTerm != -1 {
-						firstLogIndex := rf.getFirstlog().Index
-						for index := args.PrevLogIndex - 1; index >= firstLogIndex; index-- {
+						lastIndex := -1
+						for index := args.PrevLogIndex; index >= firstLogIndex; index-- {
 							if rf.logs[index-firstLogIndex].Term == reply.ConfictTerm {
-								rf.nextIndex[peer] = index
+								lastIndex = index
 								break
 							}
 						}
+						if lastIndex != -1 {
+							rf.nextIndex[peer] = lastIndex + 1 // Case 2  Leader 有 XTerm，nextIndex = XTerm 最后一个条目 + 1。
+						} else {
+							rf.nextIndex[peer] = reply.ConfictIndex // Case 1 Leader 无 XTerm，nextIndex = ConfictIndex。
+						}
+					} else {
+						rf.nextIndex[peer] = reply.ConfictIndex // Case 3 Follower 日志太短，nextIndex = XLen。
 					}
 				}
 			} else { //日志匹配成功 提交
@@ -480,7 +506,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	// Your initialization code here (3A, 3B, 3C).
 
 	// initialize from state persisted before a crash
-	// rf.readPersist(persister.ReadRaftState())
+	rf.readPersist(persister.ReadRaftState())
 
 	// should use mu to protect applyCond, avoid other goroutine to change the critical section
 	rf.applyCond = sync.NewCond(&rf.mu)

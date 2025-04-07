@@ -56,6 +56,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		rf.ChangeState(Follower)
 		//如果候选人的任期大于当前服务器的任期，服务器会更新自己的任期并投票给该候选人
 		rf.currentTerm, rf.votedFor = args.Term, -1
+		rf.persist()
 	}
 
 	//4.日志一致性:如果候选人的日志比当前服务器的日志更新（通过 isLogUpToDate 函数判断），则投票给该候选人。
@@ -67,6 +68,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	}
 
 	rf.votedFor = args.CandidateId
+	rf.persist()
 	rf.electionTimer.Reset(RandomElectionTimeout())
 	reply.Term, reply.VoteGranted = rf.currentTerm, true
 }
@@ -165,6 +167,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	//如果当前周期落后发送周期，说明当前Server未更新leader,首先设置该Raft的周期
 	if args.Term > rf.currentTerm {
 		rf.currentTerm, rf.votedFor = args.Term, -1
+		rf.persist()
 	}
 	// 改为Follow
 	rf.ChangeState(Follower)
@@ -212,6 +215,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		// 当发现首个不匹配点，执行日志截断和追加，然后退出循环
 		if entry.Index-firstLogIndex >= len(rf.logs) || rf.logs[entry.Index-firstLogIndex].Term != entry.Term {
 			rf.logs = append(rf.logs[:entry.Index-firstLogIndex], args.Entries[index:]...)
+			rf.persist()
 			break
 		}
 	}
