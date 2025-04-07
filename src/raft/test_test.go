@@ -680,6 +680,7 @@ loop:
 }
 
 func TestPersist13C(t *testing.T) {
+	InitLogger()
 	servers := 3
 	cfg := make_config(t, servers, false, false)
 	defer cfg.cleanup()
@@ -727,6 +728,7 @@ func TestPersist13C(t *testing.T) {
 
 func TestPersist23C(t *testing.T) {
 	servers := 5
+	InitLogger()
 	cfg := make_config(t, servers, false, false)
 	defer cfg.cleanup()
 
@@ -773,6 +775,7 @@ func TestPersist23C(t *testing.T) {
 
 func TestPersist33C(t *testing.T) {
 	servers := 3
+	InitLogger()
 	cfg := make_config(t, servers, false, false)
 	defer cfg.cleanup()
 
@@ -811,6 +814,7 @@ func TestPersist33C(t *testing.T) {
 // haven't been committed yet.
 func TestFigure83C(t *testing.T) {
 	servers := 5
+	InitLogger()
 	cfg := make_config(t, servers, false, false)
 	defer cfg.cleanup()
 
@@ -867,6 +871,7 @@ func TestFigure83C(t *testing.T) {
 
 func TestUnreliableAgree3C(t *testing.T) {
 	servers := 5
+	InitLogger()
 	cfg := make_config(t, servers, true, false)
 	defer cfg.cleanup()
 
@@ -896,6 +901,7 @@ func TestUnreliableAgree3C(t *testing.T) {
 
 func TestFigure8Unreliable3C(t *testing.T) {
 	servers := 5
+	InitLogger()
 	cfg := make_config(t, servers, true, false)
 	defer cfg.cleanup()
 
@@ -950,7 +956,7 @@ func TestFigure8Unreliable3C(t *testing.T) {
 }
 
 func internalChurn(t *testing.T, unreliable bool) {
-
+	InitLogger()
 	servers := 5
 	cfg := make_config(t, servers, unreliable, false)
 	defer cfg.cleanup()
@@ -1095,16 +1101,19 @@ func internalChurn(t *testing.T, unreliable bool) {
 }
 
 func TestReliableChurn3C(t *testing.T) {
+	InitLogger()
 	internalChurn(t, false)
 }
 
 func TestUnreliableChurn3C(t *testing.T) {
+	InitLogger()
 	internalChurn(t, true)
 }
 
 const MAXLOGSIZE = 2000
 
 func snapcommon(t *testing.T, name string, disconnect bool, reliable bool, crash bool) {
+	InitLogger()
 	iters := 30
 	servers := 3
 	cfg := make_config(t, servers, !reliable, true)
