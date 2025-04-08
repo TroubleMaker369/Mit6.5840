@@ -214,7 +214,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		// 任期冲突：rf.logs[entry.Index-firstLogIndex].Term != entry.Term
 		// 当发现首个不匹配点，执行日志截断和追加，然后退出循环
 		if entry.Index-firstLogIndex >= len(rf.logs) || rf.logs[entry.Index-firstLogIndex].Term != entry.Term {
-			rf.logs = append(rf.logs[:entry.Index-firstLogIndex], args.Entries[index:]...)
+			rf.logs = shrinkEntries(append(rf.logs[:entry.Index-firstLogIndex], args.Entries[index:]...))
 			rf.persist()
 			break
 		}
@@ -233,3 +233,78 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 }
 
 /////////////////////////////////////////////心跳日志心跳日志RPC处理结束/////////////////////////////////////////////
+
+// ///////////////////////////////////////////快照RPC处理开始/////////////////////////////////////////////
+type InstallSnapshotArgs struct {
+	Term              int
+	LeaderId          int
+	LastIncludedIndex int
+	LastIncludedTerm  int
+	Data              []byte
+
+	// unused fields
+	// Offset int	// byte offset where chunk is positioned in the snapshot file
+	// Done   bool	// true if this is the last chunk
+}
+
+type InstallSnapshotReply struct {
+	Term int
+}
+
+// genInstallSnapshotArgs 产生快照
+func (rf *Raft) genInstallSnapshotArgs() *InstallSnapshotArgs {
+	firstLog := rf.getFirstlog()
+	args := &InstallSnapshotArgs{
+		Term:              rf.currentTerm,
+		LeaderId:          rf.me,
+		LastIncludedIndex: firstLog.Index,
+		LastIncludedTerm:  firstLog.Term,
+		Data:              rf.persister.ReadSnapshot(),
+	}
+	return args
+}
+
+// InstallSnapshot 处理快照RPC
+func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapshotReply) {
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+	defer DPrintf("{Node %v}'s state is {state %v, term %v}} after processing InstallSnapshot,  InstallSnapshotArgs %v and InstallSnapshotReply %v ", rf.me, rf.state, rf.currentTerm, args, reply)
+
+	reply.Term = rf.currentTerm
+	if rf.currentTerm > args.Term {
+		return
+	}
+
+	if rf.currentTerm < args.Term {
+		rf.currentTerm, rf.votedFor = args.Term, -1
+		rf.persist()
+	}
+	rf.ChangeState(Follower)
+	rf.electionTimer.Reset(RandomElectionTimeout())
+
+	//查看快照是否比当前新
+	if args.LastIncludedIndex <= rf.commitIndex {
+		//Raft 要求快照只推进状态，不回退。如果快照的索引 ≤ 已提交索引
+		//应用它可能会导致状态回退，违反 Lab 3D 的要求：“快照不应使服务状态回退”
+		return
+	}
+	//这里发送给applych 后再config.go中继续判断是否符合快照应用，并在CondInstallSnapshot进行状态修改
+	go func() {
+		rf.applych <- ApplyMsg{
+
+			SnapshotValid: true,
+			Snapshot:      args.Data,
+			SnapshotTerm:  args.LastIncludedTerm,
+			SnapshotIndex: args.LastIncludedIndex,
+		}
+	}()
+
+}
+
+// sendInstallSnapshot 发送快照RPC
+func (rf *Raft) sendInstallSnapshot(peer int, args *InstallSnapshotArgs, reply *InstallSnapshotReply) bool {
+	ok := rf.peers[peer].Call("Raft.InstallSnapshot", args, reply)
+	return ok
+}
+
+/////////////////////////////////////////////快照RPC处理结束/////////////////////////////////////////////

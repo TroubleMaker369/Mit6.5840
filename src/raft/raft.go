@@ -118,20 +118,21 @@ func (rf *Raft) persist() {
 
 // restore previously persisted state.
 func (rf *Raft) readPersist(data []byte) {
-	if data == nil || len(data) < 1 { // bootstrap without any state?
+	DPrintf("{Node %v}begin decode persisted state", rf.me)
+	if len(data) < 1 { // bootstrap without any state?
 		return
 	}
+
 	r := bytes.NewBuffer(data)
 	d := labgob.NewDecoder(r)
 	var currentTerm, voteFor int
 	var logs []LogEntry
-	if d.Decode(&currentTerm) != nil ||
-		d.Decode(&voteFor) != nil || d.Decode(&logs) != nil {
+	if d.Decode(&currentTerm) != nil || d.Decode(&voteFor) != nil || d.Decode(&logs) != nil {
 		DPrintf("{Node %v} fails to decode persisted state", rf.me)
-	} else {
-		rf.currentTerm, rf.votedFor, rf.logs = currentTerm, voteFor, logs
-		rf.lastApplied, rf.commitIndex = rf.getFirstlog().Index, rf.getFirstlog().Index
 	}
+	rf.currentTerm, rf.votedFor, rf.logs = currentTerm, voteFor, logs
+	rf.lastApplied, rf.commitIndex = rf.getFirstlog().Index, rf.getFirstlog().Index
+	DPrintf("{Node %v} decode persisted success", rf.me)
 }
 
 // the service says it has created a snapshot that has
@@ -140,7 +141,53 @@ func (rf *Raft) readPersist(data []byte) {
 // that index. Raft should now trim its log as much as possible.
 func (rf *Raft) Snapshot(index int, snapshot []byte) {
 	// Your code here (3D).
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
 
+	snapshotIndex := rf.getFirstlog().Index
+	if index <= snapshotIndex || index > rf.getLastlog().Index {
+		DPrintf("{Node %v} rejects replacing log with snapshotIndex %v as current snapshotIndex %v is larger in term %v", rf.me, index, snapshotIndex, rf.currentTerm)
+		return
+	}
+
+	rf.logs = shrinkEntries(rf.logs[index-snapshotIndex:])
+	rf.logs[0].Command = nil
+	rf.persister.Save(rf.encodeState(), snapshot)
+
+	DPrintf("{Node %v}'s state is {state %v,term %v,commitIndex %v,lastApplied %v,firstLog %v,lastLog %v} after accepting the snapshot with index %v", rf.me, rf.state, rf.currentTerm, rf.commitIndex, rf.lastApplied, rf.getFirstlog(), rf.getLastlog(), index)
+
+}
+
+// 将config.go  中err_msg = cfg.ingestSnap(i, m.Snapshot, m.SnapshotIndex)  修改为:
+//
+//	if rf.CondInstallSnapshot(m.SnapshotTerm, m.SnapshotIndex, m.Snapshot) {
+//					err_msg = cfg.ingestSnap(i, m.Snapshot, m.SnapshotIndex)
+//				}
+//
+// // CondInstallSnapshot 用来peer判断leader发过来的快照是否满足条件，如果满足，则安装快照
+func (rf *Raft) CondInstallSnapshot(lastIncludedTerm int, lastIncludedIndex int, snapshot []byte) bool {
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+
+	//过期快照
+	if lastIncludedIndex <= rf.commitIndex {
+		DPrintf("{Node %v} rejects outdated snapshot with lastIncludeIndex %v as current commitIndex %v is larger in term %v", rf.me, lastIncludedIndex, rf.commitIndex, rf.currentTerm)
+		return false
+	}
+
+	if lastIncludedIndex > rf.getLastlog().Index {
+		rf.logs = make([]LogEntry, 1)
+	} else {
+		rf.logs = shrinkEntries(rf.logs[lastIncludedIndex-rf.getFirstlog().Index:])
+	}
+
+	rf.logs[0].Term, rf.logs[0].Index = lastIncludedTerm, lastIncludedIndex
+	rf.commitIndex, rf.lastApplied = lastIncludedIndex, lastIncludedIndex
+
+	rf.persister.Save(rf.encodeState(), snapshot)
+
+	DPrintf("{Node %v}'s state is {state %v,term %v,commitIndex %v,lastApplied %v,firstLog %v,lastLog %v} after accepting the snapshot which lastIncludedTerm is %v, lastIncludedIndex is %v", rf.me, rf.state, rf.currentTerm, rf.commitIndex, rf.lastApplied, rf.getFirstlog(), rf.getLastlog(), lastIncludedTerm, lastIncludedIndex)
+	return true
 }
 
 // isLogUpToDate 判断传入的日志是否比当前的日志“新”
@@ -392,58 +439,82 @@ func (rf *Raft) replicateOnceRound(peer int) {
 		return
 	}
 	prevLogIndex := rf.nextIndex[peer] - 1
-	args := rf.genAppendEntriesArgs(prevLogIndex)
-	rf.mu.RUnlock()
-	reply := new(AppendEntriesReply)
-	if rf.sendAppendEntries(peer, args, reply) {
-		rf.mu.Lock()
-		//如果rpc 后 还是leader 且周期没变化
-		if args.Term == rf.currentTerm && rf.state == Leader {
-			if !reply.Success { //日志一致性检查失败
-				if reply.Term > rf.currentTerm { //脑裂，或者已经宕机的leader突然又活过来  可能发生了网络分区，或者这个 Leader 是一个刚刚恢复但任期落后的旧 Leader
-					//标签当前服务器 已经过时了，重新变成follower
+	if prevLogIndex < rf.getFirstlog().Index { //如果Follow落后太多直接发送快照给他
+		//only send InstallSnapshot RPC
+		args := rf.genInstallSnapshotArgs()
+		rf.mu.RUnlock()
+		reply := new(InstallSnapshotReply)
+		if rf.sendInstallSnapshot(peer, args, reply) {
+			rf.mu.Lock()
+			if rf.state == Leader && rf.currentTerm == args.Term {
+				if reply.Term > rf.currentTerm {
 					rf.ChangeState(Follower)
 					rf.currentTerm, rf.votedFor = reply.Term, -1
 					rf.persist()
-				} else if reply.Term == rf.currentTerm { //说明follow的周期和leader周期一致，说明是条目出了问题
-					// //减少nextIndex并重试
-					// rf.nextIndex[peer] = reply.ConfictIndex
-					// // TODO: optimize the nextIndex finding, maybe use binary search
-					// if reply.ConfictTerm != -1 {
-					// 	firstLogIndex := rf.getFirstlog().Index
-					// 	for index := args.PrevLogIndex; index >= firstLogIndex; index-- {
-					// 		if rf.logs[index-firstLogIndex].Term == reply.ConfictTerm {
-					// 			rf.nextIndex[peer] = index
-					// 			break
-					// 		}
-					// 	}
-					// }
-					firstLogIndex := rf.getFirstlog().Index
-					if reply.ConfictTerm != -1 {
-						lastIndex := -1
-						for index := args.PrevLogIndex; index >= firstLogIndex; index-- {
-							if rf.logs[index-firstLogIndex].Term == reply.ConfictTerm {
-								lastIndex = index
-								break
-							}
-						}
-						if lastIndex != -1 {
-							rf.nextIndex[peer] = lastIndex + 1 // Case 2  Leader 有 XTerm，nextIndex = XTerm 最后一个条目 + 1。
-						} else {
-							rf.nextIndex[peer] = reply.ConfictIndex // Case 1 Leader 无 XTerm，nextIndex = ConfictIndex。
-						}
-					} else {
-						rf.nextIndex[peer] = reply.ConfictIndex // Case 3 Follower 日志太短，nextIndex = XLen。
-					}
+					// rf.electionTimer.Reset(RandomElectionTimeout())
+				} else {
+					rf.nextIndex[peer] = args.LastIncludedIndex + 1
+					rf.matchIndex[peer] = args.LastIncludedIndex
 				}
-			} else { //日志匹配成功 提交
-				rf.matchIndex[peer] = args.PrevLogIndex + len(args.Entries)
-				rf.nextIndex[peer] = rf.matchIndex[peer] + 1
-				//advance commitIndex if possible
-				rf.advanceCommitIndexForLeader()
 			}
+			rf.mu.Unlock()
+			DPrintf("{Node %v} sends InstallSnapshotArgs %v to {Node %v} and receives InstallSnapshotReply %v", rf.me, args, peer, reply)
 		}
-		rf.mu.Unlock()
+	} else {
+		args := rf.genAppendEntriesArgs(prevLogIndex)
+		rf.mu.RUnlock()
+		reply := new(AppendEntriesReply)
+		if rf.sendAppendEntries(peer, args, reply) {
+			rf.mu.Lock()
+			//如果rpc 后 还是leader 且周期没变化
+			if args.Term == rf.currentTerm && rf.state == Leader {
+				if !reply.Success { //日志一致性检查失败
+					if reply.Term > rf.currentTerm { //脑裂，或者已经宕机的leader突然又活过来  可能发生了网络分区，或者这个 Leader 是一个刚刚恢复但任期落后的旧 Leader
+						//标签当前服务器 已经过时了，重新变成follower
+						rf.ChangeState(Follower)
+						rf.currentTerm, rf.votedFor = reply.Term, -1
+						rf.persist()
+					} else if reply.Term == rf.currentTerm { //说明follow的周期和leader周期一致，说明是条目出了问题
+						// //减少nextIndex并重试
+						// rf.nextIndex[peer] = reply.ConfictIndex
+						// // TODO: optimize the nextIndex finding, maybe use binary search
+						// if reply.ConfictTerm != -1 {
+						// 	firstLogIndex := rf.getFirstlog().Index
+						// 	for index := args.PrevLogIndex; index >= firstLogIndex; index-- {
+						// 		if rf.logs[index-firstLogIndex].Term == reply.ConfictTerm {
+						// 			rf.nextIndex[peer] = index
+						// 			break
+						// 		}
+						// 	}
+						// }
+						firstLogIndex := rf.getFirstlog().Index
+						if reply.ConfictTerm != -1 {
+							lastIndex := -1
+							for index := args.PrevLogIndex; index >= firstLogIndex; index-- {
+								if rf.logs[index-firstLogIndex].Term == reply.ConfictTerm {
+									lastIndex = index
+									break
+								}
+							}
+							if lastIndex != -1 {
+								rf.nextIndex[peer] = lastIndex + 1 // Case 2  Leader 有 XTerm，nextIndex = XTerm 最后一个条目 + 1。
+							} else {
+								rf.nextIndex[peer] = reply.ConfictIndex // Case 1 Leader 无 XTerm，nextIndex = ConfictIndex。
+							}
+						} else {
+							rf.nextIndex[peer] = reply.ConfictIndex // Case 3 Follower 日志太短，nextIndex = XLen。
+						}
+					}
+				} else { //日志匹配成功 提交
+					rf.matchIndex[peer] = args.PrevLogIndex + len(args.Entries)
+					rf.nextIndex[peer] = rf.matchIndex[peer] + 1
+					//advance commitIndex if possible
+					rf.advanceCommitIndexForLeader()
+				}
+			}
+			rf.mu.Unlock()
+			DPrintf("{Node %v} sends AppendEntriesArgs %v to {Node %v} and receives AppendEntriesReply %v", rf.me, args, peer, reply)
+		}
 	}
 }
 
