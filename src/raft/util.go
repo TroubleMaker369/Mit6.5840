@@ -15,6 +15,19 @@ const (
 	Leader
 )
 
+// shrinkEntriesArray 会丢弃 entries 切片底层使用的数组，
+// 如果这个数组的大部分空间没有被使用的话。这样可以避免保留对一大堆可能很大的、不再需要的条目的引用。
+// 简单地清空 entries 是不安全的，因为客户端可能仍在使用这些条目。
+func shrinkEntries(entries []LogEntry) []LogEntry {
+	const lenMultiple = 2
+	if cap(entries) > len(entries)*lenMultiple {
+		newEntries := make([]LogEntry, len(entries))
+		copy(newEntries, entries)
+		return newEntries
+	}
+	return entries
+}
+
 func (state NodeState) String() string {
 	switch state {
 	case Follower:
