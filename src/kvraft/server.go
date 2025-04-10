@@ -1,23 +1,14 @@
 package kvraft
 
 import (
+	"sync"
+	"sync/atomic"
+	"time"
+
 	"6.5840/labgob"
 	"6.5840/labrpc"
 	"6.5840/raft"
-	"log"
-	"sync"
-	"sync/atomic"
 )
-
-const Debug = false
-
-func DPrintf(format string, a ...interface{}) (n int, err error) {
-	if Debug {
-		log.Printf(format, a...)
-	}
-	return
-}
-
 
 type Op struct {
 	// Your definitions here.
@@ -25,29 +16,145 @@ type Op struct {
 	// otherwise RPC will break.
 }
 
+// KVServer 负责协调 Raft 协议和上层键值存储逻辑，确保线性一致性
 type KVServer struct {
-	mu      sync.Mutex
+	mu      sync.RWMutex
 	me      int
 	rf      *raft.Raft
 	applyCh chan raft.ApplyMsg
 	dead    int32 // set by Kill()
 
 	maxraftstate int // snapshot if log grows this big
+	lastApplied  int //避免重复应用，记录最后的应用索引
 
 	// Your definitions here.
+	stateMachine   KVStateMachine             //表示键值存储的状态机
+	lastOperations map[int64]OperationContext //记录每个客户端的最新操作上下文，用于去重和结果缓存
+	notifyChs      map[int]chan *CommandReply //用于通知等待命令执行结果的客户端
 }
 
-
-func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
-	// Your code here.
+// isDuplicatedCommand 检查是否是重复命令
+func (kv *KVServer) isDuplicatedCommand(clientId, commandId int64) bool {
+	OperationContext, ok := kv.lastOperations[clientId]
+	return ok && commandId <= OperationContext.MaxAppliedCommandId
 }
 
-func (kv *KVServer) Put(args *PutAppendArgs, reply *PutAppendReply) {
-	// Your code here.
+// ExecuteCommand 处理客户端发送的命令请求（例如 Get、Put 或 Append 操作），并确保命令在分布式系统中正确执行。
+func (kv *KVServer) ExecuteCommand(args *CommandArgs, reply *CommandReply) {
+	kv.mu.RLock()
+	//如果不是Get命令，且是重复命令， 则直接返回旧值
+	if args.Op != OpGet && kv.isDuplicatedCommand(args.ClientId, args.CommandId) {
+		lastReply := kv.lastOperations[args.ClientId].LastReply
+		reply.Value, reply.Err = lastReply.Value, lastReply.Err
+		kv.mu.RUnlock()
+		return
+	}
+	kv.mu.RUnlock()
+	//是Get命令，不确定是不是以及执行过的
+
+	// 如果是Get命令，重复执行也没事
+	// 如果不是Get命令，则说明该命令不是重复命令需要执行
+	//提交命令到 Raft
+	index, _, isLeader := kv.rf.Start(Command{args})
+	if !isLeader {
+		reply.Err = ErrWrongLeader
+		return
+	}
+
+	//创建通知通道并等待结果
+	kv.mu.Lock()
+	ch := kv.getNotifyCh(index)
+	kv.mu.Unlock()
+
+	// 使用 select 等待：
+	// 如果通道 ch 返回结果（result），说明命令已成功应用，填充 reply。
+	// 如果超时（ExecuteTimeout），返回 ErrTimeout。
+	select {
+	case result := <-ch:
+		reply.Value, reply.Err = result.Value, result.Err
+	case <-time.After(ExecuteTimeout):
+		reply.Err = ErrTimeout
+	}
+
+	//清理通知通道
+	go func() {
+		kv.mu.Lock()
+		kv.deleteNotifyCh(index)
+		kv.mu.Unlock()
+	}()
 }
 
-func (kv *KVServer) Append(args *PutAppendArgs, reply *PutAppendReply) {
-	// Your code here.
+// getNotifyCh 检查 notifyChs 中是否已有 index 对应的通道。
+func (kv *KVServer) getNotifyCh(index int) chan *CommandReply {
+	if _, ok := kv.notifyChs[index]; !ok {
+		kv.notifyChs[index] = make(chan *CommandReply, 1)
+	}
+	return kv.notifyChs[index]
+}
+
+// deleteNotifyCh 从 notifyChs 中删除指定索引的通道
+func (kv *KVServer) deleteNotifyCh(index int) {
+	delete(kv.notifyChs, index)
+}
+
+// applyLogToStateMachine 将内容应用到状态机
+func (kv *KVServer) applyLogToStateMachine(command Command) *CommandReply {
+	reply := new(CommandReply)
+	switch command.Op {
+	case OpGet:
+		reply.Value, reply.Err = kv.stateMachine.Get(command.Key)
+	case OpPut:
+		reply.Err = kv.stateMachine.Put(command.Key, command.Value)
+	case OpAppend:
+		reply.Err = kv.stateMachine.Append(command.Key, command.Value)
+	}
+	return reply
+}
+
+func (kv *KVServer) applier() {
+	for !kv.killed() {
+		select {
+		case message := <-kv.applyCh:
+			DPrintf("{Node %v} tries to apply message %v", kv.rf.GetId(), message)
+			// 检查 message.CommandValid 是否为 true，表示这是一个命令消息（而不是快照消息）
+			if message.CommandValid {
+				kv.mu.Lock()
+				//当前条目，已经被raft应用到集群  （可能是快照恢复导致的重复消息）
+				if message.CommandIndex <= kv.lastApplied {
+					DPrintf("{Node %v} discards outdated message %v because a newer snapshot which lastApplied is %v has been restored", kv.rf.GetId(), message, kv.lastApplied)
+					kv.mu.Unlock()
+					continue //为什么continue？
+				}
+				kv.lastApplied = message.CommandIndex
+
+				reply := new(CommandReply)
+				command := message.Command.(Command) // type assertion
+				//如果不是Get命令，且是重复命令， 则直接返回旧值
+				if command.Op != OpGet && kv.isDuplicatedCommand(command.ClientId, command.CommandId) {
+					DPrintf("{Node %v} doesn't apply duplicated message %v to stateMachine because maxAppliedCommandId is %v for client %v", kv.rf.GetId(), message, kv.lastOperations[command.ClientId], command.ClientId)
+					reply = kv.lastOperations[command.ClientId].LastReply
+				} else {
+					//要么是get命令，要么是新命令; Get 是只读操作，无副作用，可重复执行，不需去重。
+					//应用到状态机
+					reply = kv.applyLogToStateMachine(command)
+					if command.Op != OpGet { //该命令是put且为新命令
+						//保存最后应用
+						kv.lastOperations[command.ClientId] = OperationContext{
+							MaxAppliedCommandId: command.CommandId,
+							LastReply:           reply,
+						}
+					}
+				}
+
+				//
+				if currentTerm, isLeader := kv.rf.GetState(); isLeader && message.CommandTerm == currentTerm {
+					ch := kv.getNotifyCh(message.CommandIndex)
+					ch <- reply
+				}
+				kv.mu.Unlock()
+			}
+		}
+	}
 }
 
 // the tester calls Kill() when a KVServer instance won't
@@ -84,18 +191,23 @@ func (kv *KVServer) killed() bool {
 func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persister, maxraftstate int) *KVServer {
 	// call labgob.Register on structures you want
 	// Go's RPC library to marshall/unmarshall.
-	labgob.Register(Op{})
+	labgob.Register(Command{})
+	applyCh := make(chan raft.ApplyMsg)
 
-	kv := new(KVServer)
-	kv.me = me
-	kv.maxraftstate = maxraftstate
-
+	kv := &KVServer{
+		mu:             sync.RWMutex{},
+		me:             me,
+		rf:             raft.Make(servers, me, persister, applyCh),
+		applyCh:        applyCh,
+		dead:           0,
+		maxraftstate:   maxraftstate,
+		stateMachine:   &MemoryKV{KV: make(map[string]string)},
+		lastOperations: make(map[int64]OperationContext),
+		notifyChs:      make(map[int]chan *CommandReply),
+	}
 	// You may need initialization code here.
 
-	kv.applyCh = make(chan raft.ApplyMsg)
-	kv.rf = raft.Make(servers, me, persister, kv.applyCh)
-
-	// You may need initialization code here.
+	go kv.applier()
 
 	return kv
 }

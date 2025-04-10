@@ -44,6 +44,7 @@ type ApplyMsg struct {
 	CommandValid bool
 	Command      interface{}
 	CommandIndex int
+	CommandTerm  int
 
 	// For 3D:
 	SnapshotValid bool
@@ -107,7 +108,6 @@ func (rf *Raft) encodeState() []byte {
 	e.Encode(rf.votedFor)
 	e.Encode(rf.logs)
 	return w.Bytes()
-
 }
 
 // persist 持久化
@@ -122,7 +122,6 @@ func (rf *Raft) readPersist(data []byte) {
 	if len(data) < 1 { // bootstrap without any state?
 		return
 	}
-
 	r := bytes.NewBuffer(data)
 	d := labgob.NewDecoder(r)
 	var currentTerm, voteFor int
@@ -261,6 +260,11 @@ func (rf *Raft) Kill() {
 func (rf *Raft) killed() bool {
 	z := atomic.LoadInt32(&rf.dead)
 	return z == 1
+}
+
+// GetId 用于lab4获取id
+func (rf *Raft) GetId() int {
+	return rf.me
 }
 
 // ChangeState 更改状态并重置超时器
@@ -414,6 +418,7 @@ func (rf *Raft) applier() {
 				CommandValid: true,
 				Command:      entry.Command,
 				CommandIndex: entry.Index,
+				CommandTerm:  entry.Term,
 			}
 		}
 		rf.mu.Lock()
@@ -575,7 +580,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 
 	// SugarLogger.Infof("%v raft Server Initialization", me)
 	// Your initialization code here (3A, 3B, 3C).
-
+	InitLogger()
 	// initialize from state persisted before a crash
 	rf.readPersist(persister.ReadRaftState())
 

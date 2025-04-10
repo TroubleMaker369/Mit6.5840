@@ -1,13 +1,18 @@
 package kvraft
 
-import "6.5840/labrpc"
-import "crypto/rand"
-import "math/big"
+import (
+	"crypto/rand"
+	"math/big"
 
+	"6.5840/labrpc"
+)
 
 type Clerk struct {
 	servers []*labrpc.ClientEnd
 	// You will have to modify this struct.
+	leaderId  int
+	clientId  int64
+	commandId int64
 }
 
 func nrand() int64 {
@@ -17,10 +22,15 @@ func nrand() int64 {
 	return x
 }
 
+// MakeClerk 构造客户端
 func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
-	ck := new(Clerk)
-	ck.servers = servers
-	// You'll have to add code here.
+	InitKVLogger()
+	ck := &Clerk{
+		servers:   servers,
+		leaderId:  0,
+		clientId:  nrand(),
+		commandId: 0,
+	}
 	return ck
 }
 
@@ -35,9 +45,10 @@ func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 // must match the declared types of the RPC handler function's
 // arguments. and reply must be passed as a pointer.
 func (ck *Clerk) Get(key string) string {
-
-	// You will have to modify this function.
-	return ""
+	return ck.ExecuteCommand(&CommandArgs{
+		Key: key,
+		Op:  OpGet,
+	})
 }
 
 // shared by Put and Append.
@@ -48,13 +59,36 @@ func (ck *Clerk) Get(key string) string {
 // the types of args and reply (including whether they are pointers)
 // must match the declared types of the RPC handler function's
 // arguments. and reply must be passed as a pointer.
-func (ck *Clerk) PutAppend(key string, value string, op string) {
-	// You will have to modify this function.
-}
+// func (ck *Clerk) PutAppend(key string, value string, op string) {
+// 	// You will have to modify this function.
+// }
 
 func (ck *Clerk) Put(key string, value string) {
-	ck.PutAppend(key, value, "Put")
+	ck.ExecuteCommand(&CommandArgs{
+		Key:   key,
+		Value: value,
+		Op:    OpPut,
+	})
 }
 func (ck *Clerk) Append(key string, value string) {
-	ck.PutAppend(key, value, "Append")
+	ck.ExecuteCommand(&CommandArgs{
+		Key:   key,
+		Value: value,
+		Op:    OpAppend,
+	})
+}
+
+// ExecuteCommand RPC调用
+func (ck *Clerk) ExecuteCommand(args *CommandArgs) string {
+	args.ClientId, args.CommandId = ck.clientId, ck.commandId
+
+	for {
+		reply := new(CommandReply)
+		if !ck.servers[ck.leaderId].Call("KVServer.ExecuteCommand", args, reply) || reply.Err == ErrWrongLeader || reply.Err == ErrTimeout {
+			ck.leaderId = (ck.leaderId + 1) % len(ck.servers)
+			continue
+		}
+		ck.commandId += 1
+		return reply.Value
+	}
 }
