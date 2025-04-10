@@ -1,6 +1,8 @@
 package kvraft
 
 import (
+	"bytes"
+	"fmt"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -111,6 +113,38 @@ func (kv *KVServer) applyLogToStateMachine(command Command) *CommandReply {
 	return reply
 }
 
+// needSnapshot 检查是否需要触发KV快照
+func (kv *KVServer) needSnapshot() bool {
+	return kv.maxraftstate != -1 && kv.rf.GetRaftStateSize() >= kv.maxraftstate
+}
+
+// takeSnapshot 生成kv快照
+func (kv *KVServer) takeSnapshot(index int) {
+	w := new(bytes.Buffer)
+	e := labgob.NewEncoder(w)
+	e.Encode(kv.stateMachine)
+	e.Encode(kv.lastOperations)
+	data := w.Bytes()
+	kv.rf.Snapshot(index, data)
+}
+
+// restoreStateFromSnapshot 从快照中恢复kvserver状态
+func (kv *KVServer) restoreStateFromSnapshot(snapshot []byte) {
+	if len(snapshot) < 1 {
+		return
+	}
+	r := bytes.NewBuffer(snapshot)
+	d := labgob.NewDecoder(r)
+	var statMachine MemoryKV
+	var lastOperations map[int64]OperationContext
+	if d.Decode(&statMachine) != nil || d.Decode(&lastOperations) != nil {
+		panic("Failed to restore state from snapshot")
+	}
+	kv.stateMachine = &statMachine
+	kv.lastOperations = lastOperations
+
+}
+
 func (kv *KVServer) applier() {
 	for !kv.killed() {
 		select {
@@ -146,12 +180,25 @@ func (kv *KVServer) applier() {
 					}
 				}
 
-				//
+				//回应客户端
 				if currentTerm, isLeader := kv.rf.GetState(); isLeader && message.CommandTerm == currentTerm {
 					ch := kv.getNotifyCh(message.CommandIndex)
 					ch <- reply
 				}
+				if kv.needSnapshot() {
+					kv.takeSnapshot(message.CommandIndex)
+				}
 				kv.mu.Unlock()
+			} else if message.SnapshotValid { //如果消息种携带快照
+				kv.mu.Lock()
+				//将快照应用到raft上，且从快照中恢复kvserver的状态
+				if kv.rf.CondInstallSnapshot(message.SnapshotTerm, message.SnapshotIndex, message.Snapshot) {
+					kv.restoreStateFromSnapshot(message.Snapshot)
+					kv.lastApplied = message.SnapshotIndex
+				}
+				kv.mu.Unlock()
+			} else {
+				panic(fmt.Sprintf("Invalid ApplyMsg %v", message))
 			}
 		}
 	}
@@ -206,6 +253,7 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 		notifyChs:      make(map[int]chan *CommandReply),
 	}
 	// You may need initialization code here.
+	kv.restoreStateFromSnapshot(persister.ReadSnapshot())
 
 	go kv.applier()
 

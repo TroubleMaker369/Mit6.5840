@@ -200,6 +200,9 @@ func (rf *Raft) isLogUpToDate(index int, term int) bool {
 		return false
 	}
 }
+func (rf *Raft) GetRaftStateSize() int {
+	return rf.persister.RaftStateSize()
+}
 
 // IsLogMatch 用来检查 Leader 的 PrevLogIndex 和 PrevLogTerm 是否与 Follower 的日志匹配
 func (rf *Raft) IsLogMatch(index int, term int) bool {
@@ -423,8 +426,11 @@ func (rf *Raft) applier() {
 		}
 		rf.mu.Lock()
 		DPrintf("{Node %v} applies log entries from index %v to %v in term %v", rf.me, lastApplied+1, commitIndex, rf.currentTerm)
-		// 使用commitIndex而不是rf.commitIndex，因为rf.commitIndex可能在Unlock（）和Lock（）期间发生变化。
-		rf.lastApplied = commitIndex
+		// 使用commitIndex与rf.commitIndex最大值而不是commitIndex，因为rf.commitIndex可能在Unlock（）和Lock（）期间发生变化。
+		//	如果直接赋值 rf.lastApplied = commitIndex，
+		// 而 rf.commitIndex 在解锁期间减小（例如由于某种异常或竞争条件）
+		// f.lastApplied 可能会被设置为一个较小的值，导致状态回退。
+		rf.lastApplied = Max(rf.lastApplied, commitIndex)
 		rf.mu.Unlock()
 	}
 }

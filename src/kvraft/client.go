@@ -81,7 +81,6 @@ func (ck *Clerk) Append(key string, value string) {
 // ExecuteCommand RPC调用
 func (ck *Clerk) ExecuteCommand(args *CommandArgs) string {
 	args.ClientId, args.CommandId = ck.clientId, ck.commandId
-
 	for {
 		reply := new(CommandReply)
 		if !ck.servers[ck.leaderId].Call("KVServer.ExecuteCommand", args, reply) || reply.Err == ErrWrongLeader || reply.Err == ErrTimeout {
