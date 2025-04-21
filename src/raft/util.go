@@ -80,7 +80,7 @@ func StableHeartbeatTimeout() time.Duration {
 // 												定时器设置===========================================
 
 // Debugging
-const Debug = true
+const Debug = false
 
 func DPrintf(format string, a ...interface{}) {
 	if Debug {

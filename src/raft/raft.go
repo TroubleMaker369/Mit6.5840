@@ -116,6 +116,13 @@ func (rf *Raft) persist() {
 
 }
 
+// used by upper layer to detect whether there are any logs in current term
+func (rf *Raft) HasLogInCurrentTerm() bool {
+	rf.mu.RLock()
+	defer rf.mu.RUnlock()
+	return rf.getLastlog().Term == rf.currentTerm
+}
+
 // restore previously persisted state.
 func (rf *Raft) readPersist(data []byte) {
 	DPrintf("{Node %v}begin decode persisted state", rf.me)
